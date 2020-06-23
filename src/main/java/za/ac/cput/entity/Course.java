@@ -16,6 +16,14 @@ public class Course {
         return courseCode;
     }
 
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseName='" + courseName + '\'' +
+                ", courseCode='" + courseCode + '\'' +
+                '}';
+    }
+
     public static class Builder{
 
         private String courseName;
