@@ -6,7 +6,8 @@ public class Institution
     private int institutionCode;
 
     private Institution (Builder builder){
-
+        this.institutionCode = builder.institutionCode;
+        this.institutionName = builder.institutionName;
     }
 
     public String getInstitutionName() {
@@ -29,17 +30,17 @@ public class Institution
         private String institutionName;
         private int institutionCode;
 
-        public Institution.Builder setInstitutionName(String institutionName) {
+        public Builder setInstitutionName(String institutionName) {
             this.institutionName = institutionName;
             return this;
         }
 
-        public Institution.Builder setInstitutionCode(int institutionCode) {
+        public Builder setInstitutionCode(int institutionCode) {
             this.institutionCode = institutionCode;
             return this;
         }
 
-        public Institution.Builder copy(Institution institution) {
+        public Builder copy(Institution institution) {
             this.institutionName = institution.institutionName;
             this.institutionCode = institution.institutionCode;
             return this;

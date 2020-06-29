@@ -6,7 +6,9 @@ public class Department {
 
 
     private Department(Builder builder) {
-
+        this.departmentCode = builder.departmentCode;
+        this.departmentName = builder.departmentName;
+        this.departmentRequirements = builder.departmentRequirements;
     }
 
     public String getDepartmentName() {

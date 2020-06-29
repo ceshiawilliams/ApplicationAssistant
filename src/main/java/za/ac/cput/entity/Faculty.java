@@ -6,7 +6,9 @@ public class Faculty {
     private String facultyRequirements;
 
     private Faculty (Builder builder){
-
+        this.facultyCode = builder.facultyCode;
+        this.facultyName = builder.facultyName;
+        this.facultyRequirements = builder.facultyRequirements;
     }
 
     public String getFacultyName() { return facultyName;    }
@@ -42,6 +44,13 @@ public class Faculty {
 
         public Builder setFacultyRequirements(String facultyRequirements) {
             this.facultyRequirements = facultyRequirements;
+            return this;
+        }
+
+        public Builder copy(Faculty faculty) {
+            this.facultyName = faculty.facultyName;
+            this.facultyCode = faculty.facultyCode;
+            this.facultyRequirements = faculty.facultyRequirements;
             return this;
         }
 

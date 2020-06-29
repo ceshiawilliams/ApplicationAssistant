@@ -8,7 +8,11 @@ public class NewUser {
     private String confirmPassword;
 
     private NewUser (Builder builder){
-
+        this.newUsername = builder.newUsername;
+        this.newUserEmail = builder.newUserEmail;
+        this.newPassword = builder.newPassword;
+        this.confirmEmail = builder.confirmEmail;
+        this.confirmPassword = builder.confirmPassword;
     }
 
     public String getNewUsername() {
@@ -49,32 +53,32 @@ public class NewUser {
         private String confirmEmail;
         private String confirmPassword;
 
-        public NewUser.Builder setNewUsername(String newUsername){
+        public Builder setNewUsername(String newUsername){
             this.newUsername = newUsername;
             return this;
         }
 
-        public NewUser.Builder setNewUserEmail(String newUserEmail){
+        public Builder setNewUserEmail(String newUserEmail){
             this.newUserEmail = newUserEmail;
             return this;
         }
 
-        public NewUser.Builder setNewPassword(String newPassword){
+        public Builder setNewPassword(String newPassword){
             this.newPassword = newPassword;
             return this;
         }
 
-        public NewUser.Builder setConfirmEmail(String confirmEmail){
+        public Builder setConfirmEmail(String confirmEmail){
             this.confirmEmail = confirmEmail;
             return this;
         }
 
-        public NewUser.Builder setConfirmPassword(String confirmPassword){
+        public Builder setConfirmPassword(String confirmPassword){
             this.confirmPassword = confirmPassword;
             return this;
         }
 
-        public NewUser.Builder copy(NewUser newUser) {
+        public Builder copy(NewUser newUser) {
             this.newUsername = newUser.newUsername;
             this.newUserEmail = newUser.newUserEmail;
             this.newPassword = newUser.newPassword;
