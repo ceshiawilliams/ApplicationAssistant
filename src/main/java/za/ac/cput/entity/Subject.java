@@ -9,33 +9,39 @@ public class Subject {
         this.subjectMark = subjectMark;
     }
 
-    public static class SubjectBuilder {
+    public String getSubjectName() {
+        return subjectName;
+    }
+
+    public int getSubjectMark() {
+        return subjectMark;
+    }
+
+    @Override
+    public String toString() {
+        return "SubjectBuilder{" +
+                "subjectName='" + subjectName + '\'' +
+                ", subjectMark=" + subjectMark +
+                '}';
+    }
+
+    public static class Builder {
         private String subjectName;
         private int subjectMark;
 
-        public String getSubjectName() {
-            return subjectName;
-        }
-
-        public int getSubjectMark() {
-            return subjectMark;
-        }
-
-        @Override
-        public String toString() {
-            return "SubjectBuilder{" +
-                    "subjectName='" + subjectName + '\'' +
-                    ", subjectMark=" + subjectMark +
-                    '}';
-        }
-
-        public SubjectBuilder setSubjectName(String subjectName) {
+        public Builder setSubjectName(String subjectName) {
             this.subjectName = subjectName;
             return this;
         }
 
-        public SubjectBuilder setSubjectMark(int subjectMark) {
+        public Builder setSubjectMark(int subjectMark) {
             this.subjectMark = subjectMark;
+            return this;
+        }
+
+        public Builder copy(Subject subject) {
+            this.subjectName = subject.subjectName;
+            this.subjectMark = subject.subjectMark;
             return this;
         }
 

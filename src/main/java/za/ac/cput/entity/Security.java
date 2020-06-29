@@ -5,7 +5,8 @@ public class Security {
     private String loginPassword;
 
     private Security (Builder builder){
-
+        this.loginUsername = builder.loginUsername;
+        this.loginPassword = builder.loginPassword;
     }
 
     public String getLoginUsername() {
@@ -19,8 +20,8 @@ public class Security {
     @Override
     public String toString() {
         return "Security{" +
-                "loginUsername='" + loginUsername + '\'' +
-                ", loginPassword='" + loginPassword + '\'' +
+                "loginUsername='" + getLoginUsername() + '\'' +
+                ", loginPassword='" + getLoginPassword() + '\'' +
                 '}';
     }
 

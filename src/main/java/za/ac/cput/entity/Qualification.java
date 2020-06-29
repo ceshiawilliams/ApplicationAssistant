@@ -5,20 +5,15 @@ package za.ac.cput.entity;
  *
  */
 public class Qualification {
-    private String numberOfSubjects;
+    private int numberOfSubjects;
     private String levelOfQualifications;
 
-    public static void main( String[] args )
-    {
-
+    private Qualification(Builder builder) {
+        this.numberOfSubjects = builder.numberOfSubjects;
+        this.levelOfQualifications = builder.levelOfQualifications;
     }
 
-    private Qualification(String numberOfSubjects, String levelOfQualifications) {
-        this.numberOfSubjects = numberOfSubjects;
-        this.levelOfQualifications = levelOfQualifications;
-    }
-
-    public String getNumberOfSubjects() {
+    public int getNumberOfSubjects() {
         return numberOfSubjects;
     }
 
@@ -34,22 +29,28 @@ public class Qualification {
                 '}';
     }
 
-    public static class QualificationBuilder {
-        private String numberOfSubjects;
+    public static class Builder {
+        private int numberOfSubjects;
         private String levelOfQualifications;
 
-        public QualificationBuilder setNumberOfSubjects(String numberOfSubjects) {
+        public Builder setNumberOfSubjects(int numberOfSubjects) {
             this.numberOfSubjects = numberOfSubjects;
             return this;
         }
 
-        public QualificationBuilder setLevelOfQualifications(String levelOfQualifications) {
+        public Builder setLevelOfQualifications(String levelOfQualifications) {
             this.levelOfQualifications = levelOfQualifications;
             return this;
         }
 
-        public Qualification createQualification() {
-            return new Qualification(numberOfSubjects, levelOfQualifications);
+        public Builder copy(Qualification qualification) {
+            this.numberOfSubjects = qualification.numberOfSubjects;
+            this.levelOfQualifications = qualification.levelOfQualifications;
+            return this;
+        }
+
+        public Qualification build(){
+            return new Qualification(this);
         }
     }
 }
