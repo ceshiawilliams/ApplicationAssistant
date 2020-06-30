@@ -6,6 +6,8 @@ public class Course {
 
 
     private Course(Builder builder) {
+        this.courseCode = builder.courseCode;
+        this.courseName = builder.courseName;
     }
 
     public String getCourseName() {

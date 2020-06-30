@@ -5,7 +5,8 @@ public class Bursaries {
     private String bursaryRequirements;
 
     private Bursaries (Builder builder){
-
+        this.bursaryName = builder.bursaryName;
+        this.bursaryRequirements = builder.bursaryRequirements;
     }
 
     public String getBursaryName() { return bursaryName;    }
@@ -31,6 +32,12 @@ public class Bursaries {
 
         public Builder setBursaryRequirements(String bursaryRequirements) {
             this.bursaryRequirements = bursaryRequirements;
+            return this;
+        }
+
+        public Builder copy(Bursaries bursaries) {
+            this.bursaryName = bursaries.bursaryName;
+            this.bursaryRequirements = bursaries.bursaryRequirements;
             return this;
         }
 

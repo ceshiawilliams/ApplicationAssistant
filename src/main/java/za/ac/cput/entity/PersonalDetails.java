@@ -6,7 +6,9 @@ public class PersonalDetails {
     private String qualificationType;
 
     private PersonalDetails (PersonalDetails.Builder builder){
-
+        this.contactCellNumber = builder.contactCellNumber;
+        this.contactEmail = builder.contactEmail;
+        this.qualificationType = builder.qualificationType;
     }
 
     public String getContactEmail() {
@@ -21,7 +23,7 @@ public class PersonalDetails {
         return qualificationType;
     }
 
-    @Override
+
     public String toString() {
         return "PersonalDetails{" +
                 "contactEmail='" + contactEmail + '\'' +
@@ -35,22 +37,22 @@ public class PersonalDetails {
         private String contactCellNumber;
         private String qualificationType;
 
-        public PersonalDetails.Builder setContactEmail(String contactEmail){
+        public Builder setContactEmail(String contactEmail){
             this.contactEmail = contactEmail;
             return this;
         }
 
-        public PersonalDetails.Builder setContactCellNumber(String contactCellNumber){
+        public Builder setContactCellNumber(String contactCellNumber){
             this.contactCellNumber = contactCellNumber;
             return this;
         }
 
-        public PersonalDetails.Builder setQualificationType(String qualificationType){
+        public Builder setQualificationType(String qualificationType){
             this.qualificationType = qualificationType;
             return this;
         }
 
-        public PersonalDetails.Builder copy(PersonalDetails personalDetails) {
+        public Builder copy(PersonalDetails personalDetails) {
             this.contactEmail = personalDetails.contactEmail;
             this.contactCellNumber = personalDetails.contactCellNumber;
             this.qualificationType = personalDetails.qualificationType;

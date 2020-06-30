@@ -6,7 +6,7 @@ public class Funding {
     private ArrayList<Funding> bursaryList = new ArrayList();
 
     private Funding (Builder builder){
-
+        this.bursaryList = builder.bursaryList;
     }
 
     public ArrayList<Funding> getBursaryList() {
@@ -23,12 +23,12 @@ public class Funding {
     public static class Builder {
         private ArrayList<Funding> bursaryList = new ArrayList();
 
-        public Funding.Builder setBursaryList(ArrayList<Funding> bursaryList) {
+        public Builder setBursaryList(ArrayList<Funding> bursaryList) {
             this.bursaryList = bursaryList;
             return this;
         }
 
-        public Funding.Builder copy(Funding funding) {
+        public Builder copy(Funding funding) {
             this.bursaryList = funding.bursaryList;
             return this;
         }
