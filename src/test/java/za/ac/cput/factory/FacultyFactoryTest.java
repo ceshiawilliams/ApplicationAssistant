@@ -1,7 +1,6 @@
 package za.ac.cput.factory;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import za.ac.cput.entity.Faculty;
 
@@ -9,17 +8,13 @@ import za.ac.cput.entity.Faculty;
 
 public class FacultyFactoryTest {
 
-    Faculty faculty = FacultyFactory.getFaculty("1", "Informatics and Design", "Pass Mark: 50%");
+    Faculty faculty = FacultyFactory.createFaculty("1", "Informatics and Design", "Pass Mark: 50%");
 
 
-    @Before
-    public void setUp() {
-    }
 
     @Test
-    public void getFaculty() {
+    public void createFaculty() {
 
-        System.out.println(faculty.toString());
 
         Assert.assertEquals("1", faculty.getFacultyCode());
         Assert.assertEquals("Informatics and Design", faculty.getFacultyName());
