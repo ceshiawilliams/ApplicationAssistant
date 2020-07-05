@@ -1,8 +1,8 @@
 package za.ac.cput.factory;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
+import za.ac.cput.entity.Bursaries;
 import za.ac.cput.entity.Funding;
 
 import java.util.ArrayList;
@@ -11,20 +11,14 @@ import java.util.ArrayList;
 
 public class FundingFactoryTest {
 
-
-    private ArrayList<Funding> bursaryList;
-
-
-    Funding funding = FundingFactory.getFunding(bursaryList);
-
-    @Before
-    public void setUp() {
-    }
-
     @Test
-    public void getFunding() {
+    public void createFunding() {
+        Bursaries bursary = BursariesFactory.createBursaries("NSFAS", "50% Aggregate");
 
-        System.out.println(funding.toString());
+        Funding funding = FundingFactory.createFunding(bursary);
+
+        Assert.assertEquals("NSFAS", funding.getBursaryList().get(0).getBursaryName());
+        Assert.assertEquals("50% Aggregate", funding.getBursaryList().get(0).getBursaryRequirements());
 
 
     }

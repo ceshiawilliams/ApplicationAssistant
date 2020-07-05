@@ -3,13 +3,13 @@ package za.ac.cput.entity;
 import java.util.ArrayList;
 
 public class Funding {
-    private ArrayList<Funding> bursaryList = new ArrayList();
+    private ArrayList<Bursaries> bursaryList = new ArrayList();
 
     private Funding (Builder builder){
         this.bursaryList = builder.bursaryList;
     }
 
-    public ArrayList<Funding> getBursaryList() {
+    public ArrayList<Bursaries> getBursaryList() {
         return bursaryList;
     }
 
@@ -21,9 +21,9 @@ public class Funding {
     }
 
     public static class Builder {
-        private ArrayList<Funding> bursaryList = new ArrayList();
+        private ArrayList<Bursaries> bursaryList = new ArrayList();
 
-        public Builder setBursaryList(ArrayList<Funding> bursaryList) {
+        public Builder setBursaryList(ArrayList<Bursaries> bursaryList) {
             this.bursaryList = bursaryList;
             return this;
         }
