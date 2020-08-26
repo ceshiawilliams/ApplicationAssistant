@@ -1,9 +1,9 @@
 package za.ac.cput.factory;
 
-import junit.framework.TestCase;
 import org.junit.Assert;
 import org.junit.Test;
-import za.ac.cput.entity.Qualification;
+import za.ac.cput.entity.previousQualification.Qualification;
+import za.ac.cput.factory.previousQualification.QualificationFactory;
 
 public class QualificationFactoryTest {
 

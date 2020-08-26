@@ -2,9 +2,8 @@ package za.ac.cput.factory;
 
 import org.junit.Assert;
 import org.junit.Test;
-import za.ac.cput.entity.NewUser;
-
-import static org.junit.Assert.*;
+import za.ac.cput.entity.user.NewUser;
+import za.ac.cput.factory.user.NewUserFactory;
 
 public class NewUserFactoryTest {
 

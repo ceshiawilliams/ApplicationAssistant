@@ -2,8 +2,8 @@ package za.ac.cput.factory;
 
 import org.junit.Assert;
 import org.junit.Test;
-import za.ac.cput.entity.Faculty;
-
+import za.ac.cput.entity.tertiaryInstitution.Faculty;
+import za.ac.cput.factory.tertiaryInstitution.FacultyFactory;
 
 
 public class FacultyFactoryTest {
