@@ -2,9 +2,8 @@ package za.ac.cput.factory;
 
 import org.junit.Assert;
 import org.junit.Test;
-import za.ac.cput.entity.Security;
-
-import static org.junit.Assert.*;
+import za.ac.cput.entity.security.Security;
+import za.ac.cput.factory.security.SecurityFactory;
 
 public class SecurityFactoryTest {
 

@@ -2,18 +2,17 @@ package za.ac.cput.factory;
 
 import org.junit.Assert;
 import org.junit.Test;
-import za.ac.cput.entity.Bursaries;
-import za.ac.cput.entity.Funding;
-
-import java.util.ArrayList;
-
+import za.ac.cput.entity.financialAid.Bursary;
+import za.ac.cput.entity.financialAid.Funding;
+import za.ac.cput.factory.financialAid.BursaryFactory;
+import za.ac.cput.factory.financialAid.FundingFactory;
 
 
 public class FundingFactoryTest {
 
     @Test
     public void createFunding() {
-        Bursaries bursary = BursariesFactory.createBursaries("NSFAS", "50% Aggregate");
+        Bursary bursary = BursaryFactory.createBursaries("NSFAS", "50% Aggregate");
 
         Funding funding = FundingFactory.createFunding(bursary);
 
