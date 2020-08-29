@@ -12,7 +12,7 @@ public class SubjectRepositoryImpl implements SubjectRepository {
 
     private static SubjectRepository getRepository()
     {
-        if (repository==null)
+        if (repository == null)
         {
             repository = new SubjectRepositoryImpl();
         }

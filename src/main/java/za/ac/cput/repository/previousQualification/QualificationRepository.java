@@ -7,5 +7,5 @@ import java.util.Set;
 
 public interface QualificationRepository extends IRepository<Qualification, String> {
 
-    Set<Qualification> getAll ();
+    Set<Qualification> getAll();
 }
