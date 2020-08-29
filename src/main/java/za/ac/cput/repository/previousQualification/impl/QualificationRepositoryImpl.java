@@ -3,7 +3,6 @@ package za.ac.cput.repository.previousQualification.impl;
 import za.ac.cput.entity.previousQualification.Qualification;
 import za.ac.cput.repository.previousQualification.QualificationRepository;
 
-
 import java.util.HashSet;
 import java.util.Set;
 
