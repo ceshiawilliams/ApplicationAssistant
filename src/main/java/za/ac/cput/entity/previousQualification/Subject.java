@@ -4,7 +4,7 @@ public class Subject {
     private String subjectName;
     private int subjectMark;
 
-    private Subject(String subjectName, int subjectMark) {
+    private Subject(String subjectName,int subjectMark) {
         this.subjectName = subjectName;
         this.subjectMark = subjectMark;
     }
@@ -26,6 +26,8 @@ public class Subject {
     }
 
     public static class Builder {
+
+
         private String subjectName;
         private int subjectMark;
 
@@ -45,8 +47,18 @@ public class Subject {
             return this;
         }
 
-        public Subject createSubject() {
+     /*   public Subject createSubject() {
             return new Subject(subjectName, subjectMark);
+        }*/
+
+        public Subject build() {
+           return new Subject(subjectName,subjectMark);
+
+
         }
+
     }
+
 }
+
+

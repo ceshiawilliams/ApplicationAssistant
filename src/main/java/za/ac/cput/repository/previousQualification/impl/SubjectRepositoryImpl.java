@@ -11,7 +11,7 @@ public class SubjectRepositoryImpl implements SubjectRepository {
     private static SubjectRepository repository = null;
     private Set<Subject>subjectSet;
 
-    private static SubjectRepository getRepository()
+    public static SubjectRepository getRepository()
     {
         if (repository == null)
         {
