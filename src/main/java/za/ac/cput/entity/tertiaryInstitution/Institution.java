@@ -3,7 +3,7 @@ package za.ac.cput.entity.tertiaryInstitution;
 public class Institution
 {
     private String institutionName;
-    private int institutionCode;
+    private String institutionCode;
 
     private Institution (Builder builder){
         this.institutionCode = builder.institutionCode;
@@ -14,7 +14,7 @@ public class Institution
         return institutionName;
     }
 
-    public int getInstitutionCode() {
+    public String getInstitutionCode() {
         return institutionCode;
     }
 
@@ -28,14 +28,14 @@ public class Institution
 
     public static class Builder {
         private String institutionName;
-        private int institutionCode;
+        private String institutionCode;
 
         public Builder setInstitutionName(String institutionName) {
             this.institutionName = institutionName;
             return this;
         }
 
-        public Builder setInstitutionCode(int institutionCode) {
+        public Builder setInstitutionCode(String institutionCode) {
             this.institutionCode = institutionCode;
             return this;
         }
