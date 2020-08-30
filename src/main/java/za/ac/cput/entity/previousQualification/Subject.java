@@ -47,9 +47,7 @@ public class Subject {
             return this;
         }
 
-     /*   public Subject createSubject() {
-            return new Subject(subjectName, subjectMark);
-        }*/
+  
 
         public Subject build() {
            return new Subject(subjectName,subjectMark);
