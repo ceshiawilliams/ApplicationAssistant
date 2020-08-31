@@ -38,7 +38,7 @@ public class SecurityRepositoryImplTest {
     }
 
     @Test
-    public void c_update()
+       public void c_update()
     {
         Security updated = new Security.Builder().copy(security).setLoginPassword("NewPassword").build();
         updated = repository.update(updated);
