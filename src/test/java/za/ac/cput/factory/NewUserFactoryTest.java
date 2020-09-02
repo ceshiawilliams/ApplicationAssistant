@@ -11,7 +11,7 @@ public class NewUserFactoryTest {
     public void createNewUser() {
         NewUser registration = NewUserFactory.createNewUser("Steven", "steven@gmail.com", "stev1357", "steven@gmail.com", "stev1357");
 
-        Assert.assertEquals("Steven", registration.getNewUsername());
+        Assert.assertEquals("Steven", registration.getNewUserName());
         Assert.assertEquals("steven@gmail.com", registration.getNewUserEmail());
         Assert.assertEquals("stev1357", registration.getNewPassword());
         Assert.assertEquals("steven@gmail.com", registration.getConfirmEmail());

@@ -25,7 +25,7 @@ public class NewUserRepositoryImplTest {
     public void a_create()
     {
         NewUser created = repository.create(newUser);
-        Assert.assertEquals(newUser.getNewUsername(), created.getNewUsername());
+        Assert.assertEquals(newUser.getNewUserName(), created.getNewUserName());
         Assert.assertEquals(newUser.getNewUserEmail(), created.getNewUserEmail());
         Assert.assertEquals(newUser.getNewPassword(),created.getNewPassword());
         Assert.assertEquals(newUser.getConfirmEmail(),created.getConfirmEmail());
@@ -36,14 +36,14 @@ public class NewUserRepositoryImplTest {
     @Test
     public void b_read()
     {
-        NewUser read = repository.read(newUser.getNewUsername());
+        NewUser read = repository.read(newUser.getNewUserId());
         System.out.println("Read: " + read);
     }
 
     @Test
     public void c_update()
     {
-        NewUser updated = new NewUser.Builder().copy(newUser).setNewUsername("New Username").build();
+        NewUser updated = new NewUser.Builder().copy(newUser).setNewPassword("456").build();
         updated = repository.update(updated);
         System.out.println("Updated: " + updated);
     }
@@ -51,7 +51,7 @@ public class NewUserRepositoryImplTest {
     @Test
     public void e_delete()
     {
-        boolean deleted = repository.delete(newUser.getNewUsername());
+        boolean deleted = repository.delete(newUser.getNewUserId());
         Assert.assertTrue(deleted);
     }
 }

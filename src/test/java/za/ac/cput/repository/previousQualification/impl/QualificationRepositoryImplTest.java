@@ -34,13 +34,13 @@ public class QualificationRepositoryImplTest {
     @Test
     public void b_read() {
 
-        Qualification read  = repository.read(qualification.getLevelOfQualifications());
+        Qualification read  = repository.read(qualification.getQualificationId());
         System.out.println("Read" + read);
     }
 
     @Test
     public void c_update() {
-        Qualification updated = new Qualification.Builder().copy(qualification).setLevelOfQualifications("Tertiary").build();
+        Qualification updated = new Qualification.Builder().copy(qualification).setLevelOfQualifications("Secondary").build();
         updated =repository.update(updated);
         System.out.println("Updated:" + updated);
     }
@@ -48,7 +48,7 @@ public class QualificationRepositoryImplTest {
     @Test
     public void e_delete() {
 
-        boolean deleted = repository.delete(qualification.getLevelOfQualifications());
+        boolean deleted = repository.delete(qualification.getQualificationId());
         Assert.assertTrue(deleted);
     }
 }

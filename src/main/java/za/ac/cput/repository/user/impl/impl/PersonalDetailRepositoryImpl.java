@@ -38,11 +38,11 @@ public class PersonalDetailRepositoryImpl implements PersonalDetailRepository {
     }
 
     @Override
-    public PersonalDetail read(String userEmail)
+    public PersonalDetail read(String personalId)
     {
         for(PersonalDetail personalDetail : this.personalDetailSet)
         {
-            if(personalDetail.getContactEmail().equalsIgnoreCase(userEmail))
+            if(personalDetail.getPersonalId().equalsIgnoreCase(personalId))
             {
                 return personalDetail;
             }
@@ -53,7 +53,7 @@ public class PersonalDetailRepositoryImpl implements PersonalDetailRepository {
     @Override
     public PersonalDetail update(PersonalDetail personalDetail)
     {
-        boolean deletePersonalDetail = delete(personalDetail.getContactEmail());
+        boolean deletePersonalDetail = delete(personalDetail.getPersonalId());
         if(deletePersonalDetail)
         {
             this.personalDetailSet.add(personalDetail);
@@ -63,9 +63,9 @@ public class PersonalDetailRepositoryImpl implements PersonalDetailRepository {
     }
 
     @Override
-    public boolean delete(String personalDetailCode)
+    public boolean delete(String personalId)
     {
-        PersonalDetail personalDetail = read(personalDetailCode);
+        PersonalDetail personalDetail = read(personalId);
         if(personalDetail != null)
         {
             this.personalDetailSet.remove(personalDetail);

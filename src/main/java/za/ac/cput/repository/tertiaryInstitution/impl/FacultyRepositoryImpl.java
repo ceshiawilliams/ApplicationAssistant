@@ -38,11 +38,11 @@ public class FacultyRepositoryImpl implements FacultyRepository {
     }
 
     @Override
-    public Faculty read(String facultyName)
+    public Faculty read(String facultyId)
     {
         for(Faculty faculty : this.facultySet)
         {
-            if(faculty.getFacultyName().equalsIgnoreCase(facultyName))
+            if(faculty.getFacultyId().equalsIgnoreCase(facultyId))
             {
                 return faculty;
             }
@@ -53,7 +53,7 @@ public class FacultyRepositoryImpl implements FacultyRepository {
     @Override
     public Faculty update(Faculty faculty)
     {
-        boolean deleteFaculty = delete(faculty.getFacultyName());
+        boolean deleteFaculty = delete(faculty.getFacultyId());
         if(deleteFaculty)
         {
             this.facultySet.add(faculty);
@@ -63,9 +63,9 @@ public class FacultyRepositoryImpl implements FacultyRepository {
     }
 
     @Override
-    public boolean delete(String facultyName)
+    public boolean delete(String facultyId)
     {
-        Faculty faculty = read(facultyName);
+        Faculty faculty = read(facultyId);
         if(faculty != null)
         {
             this.facultySet.remove(faculty);
