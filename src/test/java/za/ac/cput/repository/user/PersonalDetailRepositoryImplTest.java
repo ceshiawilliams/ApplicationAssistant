@@ -1,4 +1,4 @@
-package za.ac.cput.repository.user.impl;
+package za.ac.cput.repository.user;
 
 
 import org.junit.Assert;
@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import za.ac.cput.entity.user.PersonalDetail;
 import za.ac.cput.factory.user.PersonalDetailFactory;
-import za.ac.cput.repository.user.impl.impl.PersonalDetailRepositoryImpl;
+import za.ac.cput.repository.user.impl.PersonalDetailRepositoryImpl;
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)

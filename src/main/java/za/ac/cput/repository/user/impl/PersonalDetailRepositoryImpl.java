@@ -1,7 +1,7 @@
-package za.ac.cput.repository.user.impl.impl;
+package za.ac.cput.repository.user.impl;
 
 import za.ac.cput.entity.user.PersonalDetail;
-import za.ac.cput.repository.user.impl.PersonalDetailRepository;
+import za.ac.cput.repository.user.PersonalDetailRepository;
 
 import java.util.HashSet;
 import java.util.Set;
