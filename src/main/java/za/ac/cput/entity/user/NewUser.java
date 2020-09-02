@@ -1,22 +1,26 @@
 package za.ac.cput.entity.user;
 
 public class NewUser {
-    private String newUsername;
+    private String newUserId;
+    private String newUserName;
     private String newUserEmail;
     private String newPassword;
     private String confirmEmail;
     private String confirmPassword;
 
     private NewUser (Builder builder){
-        this.newUsername = builder.newUsername;
+        this.newUserId = builder.newUserId;
+        this.newUserName = builder.newUserName;
         this.newUserEmail = builder.newUserEmail;
         this.newPassword = builder.newPassword;
         this.confirmEmail = builder.confirmEmail;
         this.confirmPassword = builder.confirmPassword;
     }
 
-    public String getNewUsername() {
-        return newUsername;
+    public String getNewUserId() { return newUserId; }
+
+    public String getNewUserName() {
+        return newUserName;
     }
 
     public String getNewUserEmail() {
@@ -38,7 +42,8 @@ public class NewUser {
     @Override
     public String toString() {
         return "NewUser{" +
-                "newUsername='" + newUsername + '\'' +
+                "newUserId='" + newUserId + '\'' +
+                ", newUserName='" + newUserName + '\'' +
                 ", newUserEmail='" + newUserEmail + '\'' +
                 ", newPassword='" + newPassword + '\'' +
                 ", confirmEmail='" + confirmEmail + '\'' +
@@ -47,14 +52,20 @@ public class NewUser {
     }
 
     public static class Builder{
-        private String newUsername;
+        private String newUserId;
+        private String newUserName;
         private String newUserEmail;
         private String newPassword;
         private String confirmEmail;
         private String confirmPassword;
 
-        public Builder setNewUsername(String newUsername){
-            this.newUsername = newUsername;
+        public Builder setNewUserId(String newUserId) {
+            this.newUserId = newUserId;
+            return this;
+        }
+
+        public Builder setNewUserName(String newUserName){
+            this.newUserName = newUserName;
             return this;
         }
 
@@ -79,7 +90,8 @@ public class NewUser {
         }
 
         public Builder copy(NewUser newUser) {
-            this.newUsername = newUser.newUsername;
+            this.newUserId = newUser.newUserId;
+            this.newUserName = newUser.newUserName;
             this.newUserEmail = newUser.newUserEmail;
             this.newPassword = newUser.newPassword;
             this.confirmEmail = newUser.confirmEmail;

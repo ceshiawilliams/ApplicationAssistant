@@ -3,12 +3,15 @@ package za.ac.cput.repository.previousQualification.impl;
 import za.ac.cput.entity.previousQualification.Subject;
 import za.ac.cput.repository.previousQualification.SubjectRepository;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class SubjectRepositoryImpl implements SubjectRepository {
 
     private static SubjectRepository repository = null;
     private Set<Subject>subjectSet;
+
+    private SubjectRepositoryImpl() { this.subjectSet = new HashSet<>(); }
 
     public static SubjectRepository getRepository()
     {
@@ -31,11 +34,11 @@ public class SubjectRepositoryImpl implements SubjectRepository {
     }
 
     @Override
-    public Subject read(String s)
+    public Subject read(String subjectId)
     {
         for (Subject subject: this.subjectSet)
         {
-            if (subject.getSubjectName().equalsIgnoreCase(s))
+            if (subject.getSubjectId().equalsIgnoreCase(subjectId))
             {
                 return subject;
             }
@@ -46,7 +49,7 @@ public class SubjectRepositoryImpl implements SubjectRepository {
     @Override
     public Subject update(Subject subject) {
 
-        boolean deleteSubject = delete(subject.getSubjectName());
+        boolean deleteSubject = delete(subject.getSubjectId());
 
         if(deleteSubject)
         {
@@ -58,8 +61,8 @@ public class SubjectRepositoryImpl implements SubjectRepository {
     }
 
     @Override
-    public boolean delete(String s) {
-        Subject  subject = read(s);
+    public boolean delete(String subjectId) {
+        Subject  subject = read(subjectId);
         if(subject!=null)
         {
             this.subjectSet.remove(subject);

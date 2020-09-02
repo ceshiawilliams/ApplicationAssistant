@@ -32,14 +32,14 @@ public class FacultyRepositoryImplTest {
     @Test
     public void b_read()
     {
-        Faculty read = repository.read(faculty.getFacultyName());
+        Faculty read = repository.read(faculty.getFacultyId());
         System.out.println("Read: " + read);
     }
 
     @Test
     public void c_update()
     {
-        Faculty updated = new Faculty.Builder().copy(faculty).setFacultyName("NewFacultyName").build();
+        Faculty updated = new Faculty.Builder().copy(faculty).setFacultyRequirements("50%").build();
         updated = repository.update(updated);
         System.out.println("Updated: " + updated);
     }
@@ -47,7 +47,7 @@ public class FacultyRepositoryImplTest {
     @Test
     public void e_delete()
     {
-        boolean deleted = repository.delete(faculty.getFacultyName());
+        boolean deleted = repository.delete(faculty.getFacultyId());
         Assert.assertTrue(deleted);
     }
 

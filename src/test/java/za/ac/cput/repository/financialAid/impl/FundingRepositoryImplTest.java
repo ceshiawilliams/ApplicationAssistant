@@ -22,13 +22,14 @@ public class FundingRepositoryImplTest {
     {
         Funding created = repository.create(funding);
         Assert.assertEquals(funding.getFundingName(), created.getFundingName());
+        Assert.assertEquals(funding.getFundingRequirements(), created.getFundingRequirements());
         System.out.println("Created: " + created);
     }
 
     @Test
     public void b_read()
     {
-        Funding read = repository.read(funding.getFundingName());
+        Funding read = repository.read(funding.getFundingId());
         System.out.println("Read: " + read);
     }
 
@@ -43,7 +44,7 @@ public class FundingRepositoryImplTest {
     @Test
     public void e_delete()
     {
-        boolean deleted = repository.delete(funding.getFundingName());
+        boolean deleted = repository.delete(funding.getFundingId());
         Assert.assertTrue(deleted);
     }
 }

@@ -31,17 +31,17 @@ public class FundingRepositoryImpl implements FundingRepository {
     }
 
     @Override
-    public Funding read(String fundingName) {
+    public Funding read(String fundingId) {
         for (Funding funding : this.fundingDB)
         {
-            if (funding.getFundingName().equalsIgnoreCase(fundingName)) return funding;
+            if (funding.getFundingId().equalsIgnoreCase(fundingId)) return funding;
         }
         return null;
     }
 
     @Override
     public Funding update(Funding funding) {
-        boolean deleteFunding = delete(funding.getFundingName());
+        boolean deleteFunding = delete(funding.getFundingId());
         if (deleteFunding)
         {
             this.fundingDB.add(funding);
@@ -51,8 +51,8 @@ public class FundingRepositoryImpl implements FundingRepository {
     }
 
     @Override
-    public boolean delete(String fundingName) {
-        Funding funding = read(fundingName);
+    public boolean delete(String fundingId) {
+        Funding funding = read(fundingId);
         if (funding != null)
         {
             this.fundingDB.remove(funding);

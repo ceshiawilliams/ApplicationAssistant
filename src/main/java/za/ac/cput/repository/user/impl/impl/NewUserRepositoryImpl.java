@@ -11,12 +11,9 @@ public class NewUserRepositoryImpl implements NewUserRepository {
 
 
     private static NewUserRepository repository = null;
-    private Set<NewUserRepository> newUserSet;
+    private Set<NewUser> newUserSet;
 
-    private NewUserRepositoryImpl()
-    {
-        this.newUserSet = new HashSet<>();
-    }
+    private NewUserRepositoryImpl() { this.newUserSet = new HashSet<>(); }
 
     public static NewUserRepository getRepository()
     {
@@ -28,7 +25,7 @@ public class NewUserRepositoryImpl implements NewUserRepository {
     }
 
     @Override
-    public Set<NewUser> getAll() {return this.newUserSet; }
+    public Set<NewUser> getAll() { return this.newUserSet; }
 
     @Override
     public NewUser create(NewUser newUser)
@@ -38,11 +35,11 @@ public class NewUserRepositoryImpl implements NewUserRepository {
     }
 
     @Override
-    public NewUser read(String newUsername)
+    public NewUser read(String newUserId)
     {
         for(NewUser newUser : this.newUserSet)
         {
-            if(newUser.getNewUsername().equalsIgnoreCase(newUsername))
+            if(newUser.getNewUserId().equalsIgnoreCase(newUserId))
             {
                 return newUser;
             }
@@ -53,7 +50,7 @@ public class NewUserRepositoryImpl implements NewUserRepository {
     @Override
     public NewUser update(NewUser newUser)
     {
-        boolean deleteNewUser = delete(newUser.getNewUsername());
+        boolean deleteNewUser = delete(newUser.getNewUserId());
         if(deleteNewUser)
         {
             this.newUserSet.add(newUser);
@@ -63,9 +60,9 @@ public class NewUserRepositoryImpl implements NewUserRepository {
     }
 
     @Override
-    public boolean delete(String newUsername)
+    public boolean delete(String newUserId)
     {
-        NewUser newUser = read(newUsername);
+        NewUser newUser = read(newUserId);
         if(newUser != null)
         {
             this.newUserSet.remove(newUser);
