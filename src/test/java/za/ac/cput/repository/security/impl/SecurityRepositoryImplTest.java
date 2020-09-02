@@ -33,7 +33,7 @@ public class SecurityRepositoryImplTest {
     @Test
     public void b_read()
     {
-        Security read = repository.read(security.getLoginUsername());
+        Security read = repository.read(security.getSecurityId());
         System.out.println("Read: " + read);
     }
 
@@ -48,7 +48,7 @@ public class SecurityRepositoryImplTest {
     @Test
     public void e_delete()
     {
-        boolean deleted = repository.delete(security.getLoginUsername());
+        boolean deleted = repository.delete(security.getSecurityId());
         Assert.assertTrue(deleted);
     }
 }

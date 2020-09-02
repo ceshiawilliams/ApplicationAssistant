@@ -1,4 +1,4 @@
-package za.ac.cput.repository.user.impl;
+package za.ac.cput.repository.user;
 
 
 import org.junit.Assert;
@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import za.ac.cput.entity.user.PersonalDetail;
 import za.ac.cput.factory.user.PersonalDetailFactory;
-import za.ac.cput.repository.user.impl.impl.PersonalDetailRepositoryImpl;
+import za.ac.cput.repository.user.impl.PersonalDetailRepositoryImpl;
 
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -35,14 +35,14 @@ public class PersonalDetailRepositoryImplTest {
     @Test
     public void b_read()
     {
-        PersonalDetail read = repository.read(personalDetail.getContactEmail());
+        PersonalDetail read = repository.read(personalDetail.getPersonalId());
         System.out.println("Read: " + read);
     }
 
     @Test
     public void c_update()
     {
-        PersonalDetail updated = new PersonalDetail.Builder().copy(personalDetail).setContactEmail("New Contact Email").build();
+        PersonalDetail updated = new PersonalDetail.Builder().copy(personalDetail).setContactCellNumber("0729482386").build();
         updated = repository.update(updated);
         System.out.println("Updated: " + updated);
     }
@@ -50,7 +50,7 @@ public class PersonalDetailRepositoryImplTest {
     @Test
     public void e_delete()
     {
-        boolean deleted = repository.delete(personalDetail.getContactEmail());
+        boolean deleted = repository.delete(personalDetail.getPersonalId());
         Assert.assertTrue(deleted);
     }
 }

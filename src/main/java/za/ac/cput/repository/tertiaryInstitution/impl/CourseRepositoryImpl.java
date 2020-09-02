@@ -38,11 +38,11 @@ public class CourseRepositoryImpl implements CourseRepository {
     }
 
     @Override
-    public Course read(String courseName)
+    public Course read(String courseId)
     {
         for(Course course : this.courseSet)
         {
-            if(course.getCourseName().equalsIgnoreCase(courseName))
+            if(course.getCourseId().equalsIgnoreCase(courseId))
             {
                 return course;
             }
@@ -53,7 +53,7 @@ public class CourseRepositoryImpl implements CourseRepository {
     @Override
     public Course update(Course course)
     {
-        boolean deleteCourse = delete(course.getCourseName());
+        boolean deleteCourse = delete(course.getCourseId());
         if(deleteCourse)
         {
             this.courseSet.add(course);
@@ -62,9 +62,9 @@ public class CourseRepositoryImpl implements CourseRepository {
         return null;
     }
     @Override
-    public boolean delete(String courseCode)
+    public boolean delete(String courseId)
     {
-        Course course = read(courseCode);
+        Course course = read(courseId);
         if(course != null)
         {
             this.courseSet.remove(course);

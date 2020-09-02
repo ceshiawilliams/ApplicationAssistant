@@ -1,4 +1,4 @@
-package za.ac.cput.repository.user.impl;
+package za.ac.cput.repository.user;
 
 
 import za.ac.cput.entity.user.PersonalDetail;

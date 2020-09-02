@@ -34,7 +34,7 @@ public class SubjectRepositoryImplTest {
     @Test
     public void b_read() {
 
-        Subject read =  repository.read(subject.getSubjectName());
+        Subject read =  repository.read(subject.getSubjectId());
         System.out.println("Read:"+ read);
 
     }
@@ -42,7 +42,7 @@ public class SubjectRepositoryImplTest {
     @Test
     public void c_update() {
 
-        Subject updated = new Subject.Builder().copy(subject).setSubjectName("App Dev Practice").build();
+        Subject updated = new Subject.Builder().copy(subject).setSubjectName("Multimedia").build();
         updated = repository.update(updated);
         System.out.println("Updated:" + updated);
     }
@@ -50,7 +50,7 @@ public class SubjectRepositoryImplTest {
     @Test
     public void e_delete() {
 
-        boolean deleted = repository.delete(subject.getSubjectName());
+        boolean deleted = repository.delete(subject.getSubjectId());
         Assert.assertTrue(deleted);
     }
 }
