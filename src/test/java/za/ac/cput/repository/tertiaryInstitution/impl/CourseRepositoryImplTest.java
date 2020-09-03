@@ -30,14 +30,14 @@ public class CourseRepositoryImplTest {
     @Test
     public void b_read()
     {
-        Course read = repository.read(course.getCourseName());
+        Course read = repository.read(course.getCourseId());
         System.out.println("Read: " + read);
     }
 
     @Test
     public void c_update()
     {
-        Course updated = new Course.Builder().copy(course).setCourseName("NewCourseName").build();
+        Course updated = new Course.Builder().copy(course).setCourseCode("AD123987").build();
         updated = repository.update(updated);
         System.out.println("Updated: " + updated);
     }
@@ -45,7 +45,7 @@ public class CourseRepositoryImplTest {
     @Test
     public void e_delete()
     {
-        boolean deleted = repository.delete(course.getCourseName());
+        boolean deleted = repository.delete(course.getCourseId());
         Assert.assertTrue(deleted);
     }
 }

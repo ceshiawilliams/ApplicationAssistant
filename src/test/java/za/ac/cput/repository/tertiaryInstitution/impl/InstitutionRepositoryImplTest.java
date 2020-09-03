@@ -34,7 +34,7 @@ public class InstitutionRepositoryImplTest {
     @Test
     public void b_read()
     {
-        Institution read = repository.read(institution.getInstitutionCode());
+        Institution read = repository.read(institution.getInstitutionId());
         System.out.println("Read: " + read);
     }
 
@@ -49,7 +49,7 @@ public class InstitutionRepositoryImplTest {
     @Test
     public void e_delete()
     {
-        boolean deleted = repository.delete(institution.getInstitutionCode());
+        boolean deleted = repository.delete(institution.getInstitutionId());
         Assert.assertTrue(deleted);
     }
 }

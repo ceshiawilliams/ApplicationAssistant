@@ -2,13 +2,16 @@ package za.ac.cput.entity.tertiaryInstitution;
 
 public class Course {
 
-    private String courseName, courseCode;
+    private String courseId, courseName, courseCode;
 
 
     private Course(Builder builder) {
+        this.courseId = builder.courseId;
         this.courseCode = builder.courseCode;
         this.courseName = builder.courseName;
     }
+
+    public String getCourseId() { return courseId; }
 
     public String getCourseName() {
         return courseName;
@@ -21,16 +24,21 @@ public class Course {
     @Override
     public String toString() {
         return "Course{" +
-                "courseName='" + courseName + '\'' +
+                "courseId='" + courseId + '\'' +
+                ", courseName='" + courseName + '\'' +
                 ", courseCode='" + courseCode + '\'' +
                 '}';
     }
 
     public static class Builder{
-
+        private String courseId;
         private String courseName;
         private String courseCode;
 
+        public Builder setCourseId(String courseId) {
+            this.courseId = courseId;
+            return this;
+        }
 
         public Builder setCourseName (String courseName){
             this.courseName =courseName;
@@ -43,6 +51,7 @@ public class Course {
         }
 
         public Builder copy (Course course){
+            this.courseId = course.courseId;
             this.courseName = course.courseName;
             this.courseCode = course.courseCode;
             return this;

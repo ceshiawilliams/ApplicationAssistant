@@ -37,12 +37,12 @@ public class QualificationRepositoryImpl implements QualificationRepository {
     }
 
     @Override
-    public Qualification read(String s) {
+    public Qualification read(String qualificationId) {
 
         for (Qualification qualification : this.qualificationSet)
 
         {
-            if (qualification.getLevelOfQualifications().equalsIgnoreCase(s)) {return qualification;}
+            if (qualification.getQualificationId().equalsIgnoreCase(qualificationId)) {return qualification;}
         }
 
         return null;
@@ -51,7 +51,7 @@ public class QualificationRepositoryImpl implements QualificationRepository {
     @Override
     public Qualification update(Qualification qualification) {
 
-        boolean deleteQualification =  delete (qualification.getLevelOfQualifications());
+        boolean deleteQualification =  delete (qualification.getQualificationId());
 
         if (deleteQualification)
         {
@@ -62,9 +62,9 @@ public class QualificationRepositoryImpl implements QualificationRepository {
     }
 
     @Override
-    public boolean delete(String s) {
+    public boolean delete(String qualificationId) {
 
-        Qualification qualification = read(s);
+        Qualification qualification = read(qualificationId);
         if (qualification != null)
         {
             this.qualificationSet.remove(qualification);

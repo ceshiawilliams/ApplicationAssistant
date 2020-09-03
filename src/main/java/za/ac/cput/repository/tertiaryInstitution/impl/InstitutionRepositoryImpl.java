@@ -38,11 +38,11 @@ public class InstitutionRepositoryImpl implements InstitutionRepository {
     }
 
     @Override
-    public Institution read(String institutionCode)
+    public Institution read(String institutionId)
     {
         for(Institution institution : this.institutionSet)
         {
-            if(institution.getInstitutionCode().equalsIgnoreCase(institutionCode))
+            if(institution.getInstitutionId().equalsIgnoreCase(institutionId))
             {
                 return institution;
             }
@@ -53,7 +53,7 @@ public class InstitutionRepositoryImpl implements InstitutionRepository {
     @Override
     public Institution update(Institution institution)
     {
-        boolean deleteInstitution = delete(institution.getInstitutionCode());
+        boolean deleteInstitution = delete(institution.getInstitutionId());
         if(deleteInstitution)
         {
             this.institutionSet.add(institution);
@@ -63,9 +63,9 @@ public class InstitutionRepositoryImpl implements InstitutionRepository {
     }
 
     @Override
-    public boolean delete(String institutionCode)
+    public boolean delete(String institutionId)
     {
-        Institution institution = read(institutionCode);
+        Institution institution = read(institutionId);
         if(institution != null)
         {
             this.institutionSet.remove(institution);

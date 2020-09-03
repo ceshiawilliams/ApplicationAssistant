@@ -38,11 +38,11 @@ public class DepartmentRepositoryImpl implements DepartmentRepository {
     }
 
     @Override
-    public Department read(String departmentCode)
+    public Department read(String departmentId)
     {
         for(Department department : this.departmentSet)
         {
-            if(department.getDepartmentCode().equalsIgnoreCase(departmentCode))
+            if(department.getDepartmentId().equalsIgnoreCase(departmentId))
             {
                 return department;
             }
@@ -53,7 +53,7 @@ public class DepartmentRepositoryImpl implements DepartmentRepository {
     @Override
     public Department update(Department department)
     {
-        boolean deleteDepartment = delete(department.getDepartmentCode());
+        boolean deleteDepartment = delete(department.getDepartmentId());
         if(deleteDepartment)
         {
             this.departmentSet.add(department);
@@ -63,9 +63,9 @@ public class DepartmentRepositoryImpl implements DepartmentRepository {
     }
 
     @Override
-    public boolean delete(String departmentCode)
+    public boolean delete(String departmentId)
     {
-        Department department = read(departmentCode);
+        Department department = read(departmentId);
         if(department != null)
         {
             this.departmentSet.remove(department);

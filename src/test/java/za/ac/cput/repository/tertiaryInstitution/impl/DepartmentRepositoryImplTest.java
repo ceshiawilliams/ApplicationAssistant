@@ -38,7 +38,7 @@ public class DepartmentRepositoryImplTest {
     @Test
     public void b_read()
     {
-        Department read = repository.read(department.getDepartmentCode());
+        Department read = repository.read(department.getDepartmentId());
         System.out.println("Read: " + read);
     }
 
@@ -53,7 +53,7 @@ public class DepartmentRepositoryImplTest {
     @Test
     public void e_delete()
     {
-        boolean deleted = repository.delete(department.getDepartmentCode());
+        boolean deleted = repository.delete(department.getDepartmentId());
         Assert.assertTrue(deleted);
     }
 }

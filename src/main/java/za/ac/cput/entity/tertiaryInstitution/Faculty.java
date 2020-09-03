@@ -1,15 +1,19 @@
 package za.ac.cput.entity.tertiaryInstitution;
 
 public class Faculty {
+    private String facultyId;
     private String facultyName;
     private String facultyCode;
     private String facultyRequirements;
 
     private Faculty (Builder builder){
+        this.facultyId = builder.facultyId;
         this.facultyCode = builder.facultyCode;
         this.facultyName = builder.facultyName;
         this.facultyRequirements = builder.facultyRequirements;
     }
+
+    public String getFacultyId() { return facultyId; }
 
     public String getFacultyName() { return facultyName;    }
 
@@ -17,20 +21,26 @@ public class Faculty {
 
     public String getFacultyRequirements() { return facultyRequirements; }
 
-
     @Override
-    public String toString(){
+    public String toString() {
         return "Faculty{" +
-                "Faculty Name='" + facultyName + '\'' +
-                ", Faculty Code='" + facultyCode + '\'' +
-                ", Faculty Requirements='" + facultyRequirements + '\'' +
+                "facultyId='" + facultyId + '\'' +
+                ", facultyName='" + facultyName + '\'' +
+                ", facultyCode='" + facultyCode + '\'' +
+                ", facultyRequirements='" + facultyRequirements + '\'' +
                 '}';
     }
 
     public static class Builder{
+        private String facultyId;
         private String facultyName;
         private String facultyCode;
         private String facultyRequirements;
+
+        public Builder setFacultyId(String facultyId) {
+            this.facultyId = facultyId;
+            return this;
+        }
 
         public Builder setFacultyName(String facultyName) {
             this.facultyName = facultyName;
@@ -48,6 +58,7 @@ public class Faculty {
         }
 
         public Builder copy(Faculty faculty) {
+            this.facultyId = faculty.facultyId;
             this.facultyName = faculty.facultyName;
             this.facultyCode = faculty.facultyCode;
             this.facultyRequirements = faculty.facultyRequirements;

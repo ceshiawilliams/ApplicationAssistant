@@ -1,13 +1,17 @@
 package za.ac.cput.entity.security;
 
 public class Security {
+    private String securityId;
     private String loginUsername;
     private String loginPassword;
 
     private Security (Builder builder){
+        this.securityId = builder.securityId;
         this.loginUsername = builder.loginUsername;
         this.loginPassword = builder.loginPassword;
     }
+
+    public String getSecurityId() { return securityId; }
 
     public String getLoginUsername() {
         return loginUsername;
@@ -20,14 +24,21 @@ public class Security {
     @Override
     public String toString() {
         return "Security{" +
-                "loginUsername='" + getLoginUsername() + '\'' +
-                ", loginPassword='" + getLoginPassword() + '\'' +
+                "securityId='" + securityId + '\'' +
+                ", loginUsername='" + loginUsername + '\'' +
+                ", loginPassword='" + loginPassword + '\'' +
                 '}';
     }
 
     public static class Builder{
+        private String securityId;
         private String loginUsername;
         private String loginPassword;
+
+        public Builder setSecurityId(String securityId) {
+            this.securityId = securityId;
+            return this;
+        }
 
         public Builder setLoginUsername(String loginUsername){
             this.loginUsername = loginUsername;
@@ -40,6 +51,7 @@ public class Security {
         }
 
         public Builder copy(Security security) {
+            this.securityId = security.securityId;
             this.loginUsername = security.loginUsername;
             this.loginPassword = security.loginPassword;
             return this;

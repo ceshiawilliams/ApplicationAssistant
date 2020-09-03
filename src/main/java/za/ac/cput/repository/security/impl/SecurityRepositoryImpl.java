@@ -40,11 +40,11 @@ public class SecurityRepositoryImpl implements SecurityRepository {
     }
 
     @Override
-    public Security read(String username)
+    public Security read(String securityId)
     {
         for(Security security : this.securitySet)
         {
-            if(security.getLoginUsername().equalsIgnoreCase(username))
+            if(security.getSecurityId().equalsIgnoreCase(securityId))
             {
                 return security;
             }
@@ -55,7 +55,7 @@ public class SecurityRepositoryImpl implements SecurityRepository {
     @Override
     public Security update(Security security)
     {
-        boolean deleteSecurity = delete(security.getLoginUsername());
+        boolean deleteSecurity = delete(security.getSecurityId());
         if(deleteSecurity)
         {
             this.securitySet.add(security);
@@ -65,9 +65,9 @@ public class SecurityRepositoryImpl implements SecurityRepository {
     }
 
     @Override
-    public boolean delete(String username)
+    public boolean delete(String securityId)
     {
-        Security security = read(username);
+        Security security = read(securityId);
         if(security != null)
         {
             this.securitySet.remove(security);

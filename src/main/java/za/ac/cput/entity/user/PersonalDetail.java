@@ -1,15 +1,19 @@
 package za.ac.cput.entity.user;
 
 public class PersonalDetail {
+    private String personalId;
     private String contactEmail;
     private String contactCellNumber;
     private String qualificationType;
 
-    private PersonalDetail(PersonalDetail.Builder builder){
+    private PersonalDetail(Builder builder){
+        this.personalId = builder.personalId;
         this.contactCellNumber = builder.contactCellNumber;
         this.contactEmail = builder.contactEmail;
         this.qualificationType = builder.qualificationType;
     }
+
+    public String getPersonalId() { return personalId; }
 
     public String getContactEmail() {
         return contactEmail;
@@ -24,18 +28,26 @@ public class PersonalDetail {
     }
 
 
+    @Override
     public String toString() {
-        return "PersonalDetails{" +
-                "contactEmail='" + contactEmail + '\'' +
+        return "PersonalDetail{" +
+                "personalId='" + personalId + '\'' +
+                ", contactEmail='" + contactEmail + '\'' +
                 ", contactCellNumber='" + contactCellNumber + '\'' +
                 ", qualificationType='" + qualificationType + '\'' +
                 '}';
     }
 
     public static class Builder{
+        private String personalId;
         private String contactEmail;
         private String contactCellNumber;
         private String qualificationType;
+
+        public Builder setPersonalId(String personalId) {
+            this.personalId = personalId;
+            return this;
+        }
 
         public Builder setContactEmail(String contactEmail){
             this.contactEmail = contactEmail;
@@ -53,6 +65,7 @@ public class PersonalDetail {
         }
 
         public Builder copy(PersonalDetail personalDetail) {
+            this.personalId = personalDetail.personalId;
             this.contactEmail = personalDetail.contactEmail;
             this.contactCellNumber = personalDetail.contactCellNumber;
             this.qualificationType = personalDetail.qualificationType;
