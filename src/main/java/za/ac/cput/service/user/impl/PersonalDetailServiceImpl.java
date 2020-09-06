@@ -33,11 +33,11 @@ public class PersonalDetailServiceImpl implements PersonalDetailService {
     }
 
     @Override
-    public Set<PersonalDetail> getAllStartingWith076() {
+    public Set<PersonalDetail> getAllStartingWith076(String letter) {
         Set<PersonalDetail> personalDetails = getAll();
         Set<PersonalDetail> personalDetailsWith076 = new HashSet<>();
         for (PersonalDetail personalDetail : personalDetails) {
-            if (personalDetail.getContactCellNumber().trim().toLowerCase().startsWith(076 + "")) {
+            if (personalDetail.getContactCellNumber().trim().toLowerCase().startsWith(letter)) {
                 personalDetailsWith076.add(personalDetail);
             }
         }
