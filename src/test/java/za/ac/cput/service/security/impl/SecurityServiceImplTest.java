@@ -33,6 +33,8 @@ public class SecurityServiceImplTest {
 
         Security created  = service.create(security);
         Assert.assertEquals(security.getSecurityId(), created.getSecurityId());
+        Assert.assertEquals(security.getLoginPassword(),created.getLoginPassword());
+        Assert.assertEquals(security.getLoginUsername(), created.getLoginUsername());
         System.out.println("Created:" + created);
     }
 
@@ -54,10 +56,19 @@ public class SecurityServiceImplTest {
     }
 
     @Test
-    public void e_delete() {
+    public void f_delete() {
 
         boolean deleted = service.delete(security.getSecurityId());
         Assert.assertTrue(deleted);
+
+    }
+
+    @Test
+    public void e_getAllStartingWithA() {
+
+        Set<Security> startWihA = service.getAllStartingWithA();
+        assertEquals(1,startWihA.size());
+        System.out.println("All secure" + startWihA);
 
     }
 }

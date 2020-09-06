@@ -9,5 +9,5 @@ public interface PersonalDetailService extends IService<PersonalDetail, String> 
     Set<PersonalDetail> getAll();
 
     //unique implementation according to business rules
-    Set<PersonalDetail> getAllStartingWith076();
+    Set<PersonalDetail> getAllStartingWith076(String letter);
 }

@@ -24,6 +24,8 @@ public class CourseServiceImplTest {
         System.out.println("All courses: " + courses);
     }
 
+
+
     @Test
     public void a_create() {
         Course created = service.create(course);
@@ -47,8 +49,15 @@ public class CourseServiceImplTest {
     }
 
     @Test
-    public void e_delete() {
+    public void f_delete() {
         boolean deleted = service.delete(course.getCourseId());
         Assert.assertTrue(deleted);
+    }
+
+    @Test
+    public void e_getAllStartingWith() {
+        Set<Course> courses = service.getAllStartingWith("a");
+        assertEquals(1, courses.size());
+        System.out.println("All courses: " + courses);
     }
 }
