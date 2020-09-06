@@ -3,7 +3,6 @@ package za.ac.cput.service.user.impl;
 import za.ac.cput.entity.user.PersonalDetail;
 import za.ac.cput.repository.user.PersonalDetailRepository;
 import za.ac.cput.repository.user.impl.PersonalDetailRepositoryImpl;
-import za.ac.cput.service.tertiaryInstitution.CourseService;
 import za.ac.cput.service.user.PersonalDetailService;
 
 import java.util.HashSet;

@@ -6,7 +6,7 @@ import za.ac.cput.repository.user.PersonalDetailRepository;
 import java.util.HashSet;
 import java.util.Set;
 
-public class PersonalDetailRepositoryImpl implements PersonalDetailRepository {
+public class PersonalDetailRepositoryImpl implements PersonalDetailRepository{
 
     private static PersonalDetailRepository repository = null;
     private Set<PersonalDetail> personalDetailSet;
