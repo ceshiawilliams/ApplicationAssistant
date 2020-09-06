@@ -7,6 +7,7 @@ import java.util.Set;
 
 public interface SecurityService extends IService <Security,String> {
     
+
     Set<Security> getAll ();
 
 Set<Security> getAllStartingWithA();
