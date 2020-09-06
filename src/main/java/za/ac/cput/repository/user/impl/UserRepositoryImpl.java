@@ -6,7 +6,7 @@ import za.ac.cput.repository.user.UserRepository;
 import java.util.HashSet;
 import java.util.Set;
 
-public class UserRepositoryImpl implements UserRepository {
+public class UserRepositoryImpl implements UserRepository{
 
 
 
