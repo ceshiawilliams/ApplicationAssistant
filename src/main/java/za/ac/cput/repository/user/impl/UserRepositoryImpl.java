@@ -7,9 +7,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class UserRepositoryImpl implements UserRepository {
-
-
-
     private static UserRepository repository = null;
     private Set<User> userSet;
 
