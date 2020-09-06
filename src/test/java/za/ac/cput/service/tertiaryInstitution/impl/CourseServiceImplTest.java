@@ -55,8 +55,8 @@ public class CourseServiceImplTest {
     }
 
     @Test
-    public void e_getAllStartingWithD() {
-        Set<Course> courses = service.getAll();
+    public void e_getAllStartingWith() {
+        Set<Course> courses = service.getAllStartingWith("a");
         assertEquals(1, courses.size());
         System.out.println("All courses: " + courses);
     }

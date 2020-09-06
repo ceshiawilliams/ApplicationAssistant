@@ -10,6 +10,6 @@ public interface CourseService extends IService<Course, String> {
 
     //unique business logic as per Course
 
-    Set<Course> getAllStartingWithD();
+    Set<Course> getAllStartingWith(String letter);
 
 }
