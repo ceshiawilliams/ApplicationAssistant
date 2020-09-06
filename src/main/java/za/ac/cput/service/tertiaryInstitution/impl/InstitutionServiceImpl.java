@@ -21,7 +21,7 @@ public class InstitutionServiceImpl implements InstitutionService {
     public static InstitutionService getService() {
         if (service == null) service = new InstitutionServiceImpl();
 
-            return service;
+        return service;
     }
 
 

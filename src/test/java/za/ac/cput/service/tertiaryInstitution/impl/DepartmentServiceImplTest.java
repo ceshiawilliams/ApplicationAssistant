@@ -62,3 +62,4 @@ public class DepartmentServiceImplTest {
         Assert.assertTrue(deleted);
     }
 }
+
