@@ -1,4 +1,4 @@
-package za.ac.cput.service.previousQualification.Impl;
+package za.ac.cput.service.previousQualification.impl;
 
 import org.junit.Assert;
 import org.junit.FixMethodOrder;

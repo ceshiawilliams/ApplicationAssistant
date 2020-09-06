@@ -1,4 +1,4 @@
-package za.ac.cput.service.previousQualification.Impl;
+package za.ac.cput.service.previousQualification.impl;
 
 import za.ac.cput.entity.previousQualification.Qualification;
 import za.ac.cput.repository.previousQualification.QualificationRepository;

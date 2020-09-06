@@ -1,4 +1,4 @@
-package za.ac.cput.service.security.Impl;
+package za.ac.cput.service.security.impl;
 
 import org.junit.Assert;
 import org.junit.FixMethodOrder;

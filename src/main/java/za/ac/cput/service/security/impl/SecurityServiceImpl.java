@@ -1,4 +1,4 @@
-package za.ac.cput.service.security.Impl;
+package za.ac.cput.service.security.impl;
 
 import za.ac.cput.entity.security.Security;
 import za.ac.cput.repository.security.SecurityRepository;
