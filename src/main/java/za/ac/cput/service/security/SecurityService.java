@@ -9,11 +9,5 @@ public interface SecurityService extends IService <Security,String> {
     
     Set<Security> getAll ();
 
-
-///THINK of A RELEVANT BUSINESS LOGIC LATER
-//Set<Security>getAllStartingWithA();
-
-
-
-
+Set<Security> getAllStartingWithA();
 }

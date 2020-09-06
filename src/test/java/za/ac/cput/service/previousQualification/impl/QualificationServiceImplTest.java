@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 public class QualificationServiceImplTest {
 
     private static QualificationService service = QualificationServiceImpl.getService();
-    private static Qualification qualification = QualificationFactory.createQualification("Tertiary", 3);
+    private static Qualification qualification = QualificationFactory.createQualification("Degree", 3);
 
     @Test
     public void d_getAll() {
@@ -31,6 +31,8 @@ public class QualificationServiceImplTest {
     public void a_create() {
         Qualification created  = service.create(qualification);
         assertEquals(qualification.getQualificationId(), created.getQualificationId());
+        assertEquals(qualification.getLevelOfQualifications(), created.getLevelOfQualifications());
+        assertEquals(qualification.getNumberOfSubjects(), created.getNumberOfSubjects());
         System.out.println("Created:"+ created);
     }
 
@@ -48,10 +50,18 @@ public class QualificationServiceImplTest {
     }
 
     @Test
-    public void e_delete() {
+    public void f_delete() {
         boolean deleted = service.delete(qualification.getQualificationId());
         Assert.assertTrue(deleted);
 
 
+    }
+
+    @Test
+    public void e_getAllStartingWithD() {
+
+        Set<Qualification> secureWithD = service.getAllStartingWithD();
+        assertEquals(1,secureWithD.size());
+        System.out.println("All secure" + secureWithD);
     }
 }
