@@ -48,8 +48,15 @@ public class PersonalDetailServiceImplTest {
     }
 
     @Test
-    public void e_delete() {
+    public void f_delete() {
         boolean deleted = service.delete(personalDetail.getPersonalId());
         Assert.assertTrue(deleted);
+    }
+
+    @Test
+    public void e_getAllStartingWith076() {
+        Set<PersonalDetail> personalDetails = service.getAll();
+        assertEquals(1, personalDetails.size());
+        System.out.println("All personal details: " + personalDetails);
     }
 }
