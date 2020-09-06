@@ -54,7 +54,7 @@ public class Qualification {
             return this;
         }
 
-        public Builder copy(Qualification qualification) {
+        public  Builder copy(Qualification qualification) {
             this.qualificationId = qualification.qualificationId;
             this.numberOfSubjects = qualification.numberOfSubjects;
             this.levelOfQualifications = qualification.levelOfQualifications;
