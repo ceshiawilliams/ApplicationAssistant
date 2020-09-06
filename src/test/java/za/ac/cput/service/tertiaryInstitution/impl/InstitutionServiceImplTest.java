@@ -19,7 +19,7 @@ import java.util.Set;
 public class InstitutionServiceImplTest {
 
     private static InstitutionService service = InstitutionServiceImpl.getService();
-    private static Institution institution = InstitutionFactory.createInstitution("CPUT", "2929");
+    private static Institution institution = InstitutionFactory.createInstitution("CPUT", "229");
 
     @Test
     public void d_getAll() {
@@ -51,7 +51,7 @@ public class InstitutionServiceImplTest {
 
     @Test
     public void c_update() {
-        Institution updated = new Institution.Builder().copy(institution).setInstitutionId("2929").build();
+        Institution updated = new Institution.Builder().copy(institution).setInstitutionId("229").build();
         updated = service.update(updated);
         System.out.println("Updated: " +updated);
     }
