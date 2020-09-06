@@ -5,7 +5,7 @@ import za.ac.cput.repository.security.SecurityRepository;
 import za.ac.cput.repository.security.impl.SecurityRepositoryImpl;
 import za.ac.cput.service.security.SecurityService;
 
-//import java.util.HashSet;
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -34,20 +34,18 @@ public class SecurityServiceImpl implements SecurityService {
         return this.repository.getAll();
     }
 
- /*   @Override
- //THINK of A RELEVANT BUSINESS LOGIC LATER
+    @Override
     public Set<Security> getAllStartingWithA() {
         Set<Security> secure = getAll();
         Set<Security> secureWithA = new HashSet<>();
 
         for (Security security: secure){
-            if (security.getSecurityId().trim().toLowerCase().startsWith("a")){
+            if (security.getLoginUsername().trim().toLowerCase().startsWith("a")){
                 secureWithA.add(security);
             }
         }
         return secureWithA;
-    }*/
-
+    }
 
     @Override
     public Security create(Security security) {

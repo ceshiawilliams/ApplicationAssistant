@@ -9,4 +9,6 @@ public interface QualificationService extends IService <Qualification, String> {
 
     Set<Qualification> getAll();
 
+    Set<Qualification> getAllStartingWithD();
+
 }
