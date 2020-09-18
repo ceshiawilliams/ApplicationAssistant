@@ -1,4 +1,4 @@
-package za.ac.cput.repository.user;
+package za.ac.cput.repository.user.impl;
 
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import za.ac.cput.entity.user.User;
 import za.ac.cput.factory.user.UserFactory;
+import za.ac.cput.repository.user.UserRepository;
 import za.ac.cput.repository.user.impl.UserRepositoryImpl;
 
 
