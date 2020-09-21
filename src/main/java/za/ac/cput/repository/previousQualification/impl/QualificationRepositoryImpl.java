@@ -2,6 +2,7 @@ package za.ac.cput.repository.previousQualification.impl;
 
 
 import za.ac.cput.entity.previousQualification.Qualification;
+import za.ac.cput.entity.previousQualification.Subject;
 import za.ac.cput.repository.previousQualification.QualificationRepository;
 
 import java.util.HashSet;
@@ -33,6 +34,7 @@ public class QualificationRepositoryImpl implements QualificationRepository {
     public Qualification create (Qualification qualification)
     {
         this.qualificationSet.add(qualification);
+        SubjectRepositoryImpl.getRepository().clearAll();
         return qualification;
     }
 

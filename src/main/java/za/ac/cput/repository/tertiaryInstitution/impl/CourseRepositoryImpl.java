@@ -1,6 +1,7 @@
 package za.ac.cput.repository.tertiaryInstitution.impl;
 
 import za.ac.cput.entity.tertiaryInstitution.Course;
+import za.ac.cput.repository.previousQualification.impl.SubjectRepositoryImpl;
 import za.ac.cput.repository.tertiaryInstitution.CourseRepository;
 import java.util.*;
 
@@ -11,7 +12,6 @@ public class CourseRepositoryImpl implements CourseRepository {
 
     private CourseRepositoryImpl()
     {
-
         this.courseSet = new HashSet<>();
     }
 
@@ -34,6 +34,7 @@ public class CourseRepositoryImpl implements CourseRepository {
     public Course create(Course course)
     {
         this.courseSet.add(course);
+        SubjectRepositoryImpl.getRepository().clearAll();
         return course;
     }
 

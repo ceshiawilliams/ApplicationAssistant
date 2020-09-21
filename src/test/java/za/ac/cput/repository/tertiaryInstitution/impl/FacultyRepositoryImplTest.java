@@ -10,7 +10,7 @@ import za.ac.cput.repository.tertiaryInstitution.FacultyRepository;
 public class FacultyRepositoryImplTest {
 
     private static FacultyRepository repository = FacultyRepositoryImpl.getRepository();
-    private static Faculty faculty = FacultyFactory.createFaculty("2", "ICTMAF256S", "Pass mark 60%");
+    private static Faculty faculty = FacultyFactory.createFaculty("2", "ICTMAF256S");
 
     @Test
     public void d_getAll()
@@ -24,7 +24,6 @@ public class FacultyRepositoryImplTest {
         Faculty created = repository.create(faculty);
         Assert.assertEquals(faculty.getFacultyName(), created.getFacultyName());
         Assert.assertEquals(faculty.getFacultyCode(), created.getFacultyCode());
-        Assert.assertEquals(faculty.getFacultyRequirements(), created.getFacultyRequirements());
 
         System.out.println("Created: " + created);
     }
@@ -39,7 +38,7 @@ public class FacultyRepositoryImplTest {
     @Test
     public void c_update()
     {
-        Faculty updated = new Faculty.Builder().copy(faculty).setFacultyRequirements("50%").build();
+        Faculty updated = new Faculty.Builder().copy(faculty).setFacultyName("Engineering").build();
         updated = repository.update(updated);
         System.out.println("Updated: " + updated);
     }

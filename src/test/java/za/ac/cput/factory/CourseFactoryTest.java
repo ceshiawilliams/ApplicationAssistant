@@ -9,9 +9,10 @@ public class CourseFactoryTest {
 
     @Test
     public void createCourse() {
-        Course course = CourseFactory.createCourse("Information Technology", "ICT362S");
+        Course course = CourseFactory.createCourse("Information Technology", "ICT362S", "15000");
 
         Assert.assertEquals("Information Technology", course.getCourseName());
         Assert.assertEquals("ICT362S", course.getCourseCode());
+        Assert.assertEquals("15000", course.getCourseFees());
     }
 }

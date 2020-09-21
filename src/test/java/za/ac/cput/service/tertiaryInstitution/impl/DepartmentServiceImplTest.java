@@ -16,7 +16,7 @@ import static org.junit.Assert.*;
 public class DepartmentServiceImplTest {
 
     private static DepartmentService service = DepartmentServiceImpl.getService();
-    private  static Department department = DepartmentFactory.createDepartment("Information Technology", "IT3","NSC");
+    private  static Department department = DepartmentFactory.createDepartment("Information Technology", "IT3");
 
 
 
@@ -39,7 +39,6 @@ public class DepartmentServiceImplTest {
         Department created = service.create(department);
         Assert.assertEquals(department.getDepartmentName(), created.getDepartmentName());
         Assert.assertEquals(department.getDepartmentCode(), created.getDepartmentCode());
-        Assert.assertEquals(department.getDepartmentRequirements(), created.getDepartmentRequirements());
         System.out.println("Created: " + created);
     }
 
@@ -51,7 +50,7 @@ public class DepartmentServiceImplTest {
 
     @Test
     public void c_update() {
-        Department updated = new Department.Builder().copy(department).setDepartmentRequirements("65% Average").build();
+        Department updated = new Department.Builder().copy(department).setDepartmentName("I.T").build();
         updated = service.update(updated);
         System.out.println("Updated: " + updated);
     }
