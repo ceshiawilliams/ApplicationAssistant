@@ -1,13 +1,17 @@
 package za.ac.cput.service.previousQualification.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.previousQualification.Qualification;
+import za.ac.cput.entity.previousQualification.Subject;
+import za.ac.cput.entity.tertiaryInstitution.Course;
 import za.ac.cput.repository.previousQualification.QualificationRepository;
 import za.ac.cput.repository.previousQualification.impl.QualificationRepositoryImpl;
 import za.ac.cput.service.previousQualification.QualificationService;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-
+@Service
 public class QualificationServiceImpl implements QualificationService {
 
     private static QualificationService service = null;
@@ -42,6 +46,34 @@ public class QualificationServiceImpl implements QualificationService {
             }
         }
         return secureWithD;
+    }
+
+    @Override
+    public ArrayList<Course> checkIfQualifies(Qualification qualification, Set<Course> courseLIst) {
+        ArrayList<Course> subjectsQualified = new ArrayList<>();
+        for(Course course : courseLIst)
+        {
+            int passed = 0;
+            for(Subject subject : qualification.getSubjectList())
+            {
+                for(Subject requirement : course.getCourseRequirement())
+                {
+                    if(subject.getSubjectName() == requirement.getSubjectName())
+                    {
+                        if(subject.getSubjectMark() >= requirement.getSubjectMark())
+                        {
+                            passed++;
+                        }
+                    }
+                }
+
+            }
+            if(passed == course.getCourseRequirement().size())
+            {
+                subjectsQualified.add(course);
+            }
+        }
+        return subjectsQualified;
     }
 
     @Override

@@ -1,24 +1,25 @@
 package za.ac.cput.entity.previousQualification;
 
-/** Ceshia Williams
- *
- *
- */
+
+import java.util.Set;
+
 public class Qualification {
     private String qualificationId;
-    private int numberOfSubjects;
+    private Set<Subject> subjectList;
     private String levelOfQualifications;
+
+    private Qualification(){}
 
     private Qualification(Builder builder) {
         this.qualificationId = builder.qualificationId;
-        this.numberOfSubjects = builder.numberOfSubjects;
+        this.subjectList = builder.subjectList;
         this.levelOfQualifications = builder.levelOfQualifications;
     }
 
     public String getQualificationId() { return qualificationId; }
 
-    public int getNumberOfSubjects() {
-        return numberOfSubjects;
+    public Set<Subject> getSubjectList() {
+        return subjectList;
     }
 
     public String getLevelOfQualifications() {
@@ -29,14 +30,14 @@ public class Qualification {
     public String toString() {
         return "Qualification{" +
                 "qualificationId='" + qualificationId + '\'' +
-                ", numberOfSubjects=" + numberOfSubjects +
+                ", subjectList=" + subjectList +
                 ", levelOfQualifications='" + levelOfQualifications + '\'' +
                 '}';
     }
 
     public static class Builder {
         private String qualificationId;
-        private int numberOfSubjects;
+        private Set<Subject> subjectList;
         private String levelOfQualifications;
 
         public Builder setQualificationId(String qualificationId) {
@@ -44,8 +45,8 @@ public class Qualification {
             return this;
         }
 
-        public Builder setNumberOfSubjects(int numberOfSubjects) {
-            this.numberOfSubjects = numberOfSubjects;
+        public Builder setSubjectList(Set<Subject> subjectList) {
+            this.subjectList = subjectList;
             return this;
         }
 
@@ -56,7 +57,7 @@ public class Qualification {
 
         public  Builder copy(Qualification qualification) {
             this.qualificationId = qualification.qualificationId;
-            this.numberOfSubjects = qualification.numberOfSubjects;
+            this.subjectList = qualification.subjectList;
             this.levelOfQualifications = qualification.levelOfQualifications;
             return this;
         }

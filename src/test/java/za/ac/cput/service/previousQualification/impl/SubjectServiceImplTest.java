@@ -19,7 +19,7 @@ public class SubjectServiceImplTest {
     @Test
     public void d_getAll() {
         Set<Subject> subjects = service.getAll();
-        assertEquals(1, subjects.size());
+        Assert.assertEquals(1, subjects.size());
         System.out.println("All subjects: " + subjects);
     }
 

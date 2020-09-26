@@ -4,13 +4,12 @@ public class Faculty {
     private String facultyId;
     private String facultyName;
     private String facultyCode;
-    private String facultyRequirements;
+    //Add variable to say which institution this object belongs to
 
     private Faculty (Builder builder){
         this.facultyId = builder.facultyId;
         this.facultyCode = builder.facultyCode;
         this.facultyName = builder.facultyName;
-        this.facultyRequirements = builder.facultyRequirements;
     }
 
     public String getFacultyId() { return facultyId; }
@@ -19,15 +18,12 @@ public class Faculty {
 
     public String getFacultyCode() { return facultyCode;    }
 
-    public String getFacultyRequirements() { return facultyRequirements; }
-
     @Override
     public String toString() {
         return "Faculty{" +
                 "facultyId='" + facultyId + '\'' +
                 ", facultyName='" + facultyName + '\'' +
                 ", facultyCode='" + facultyCode + '\'' +
-                ", facultyRequirements='" + facultyRequirements + '\'' +
                 '}';
     }
 
@@ -35,7 +31,6 @@ public class Faculty {
         private String facultyId;
         private String facultyName;
         private String facultyCode;
-        private String facultyRequirements;
 
         public Builder setFacultyId(String facultyId) {
             this.facultyId = facultyId;
@@ -52,16 +47,10 @@ public class Faculty {
             return this;
         }
 
-        public Builder setFacultyRequirements(String facultyRequirements) {
-            this.facultyRequirements = facultyRequirements;
-            return this;
-        }
-
         public Builder copy(Faculty faculty) {
             this.facultyId = faculty.facultyId;
             this.facultyName = faculty.facultyName;
             this.facultyCode = faculty.facultyCode;
-            this.facultyRequirements = faculty.facultyRequirements;
             return this;
         }
 

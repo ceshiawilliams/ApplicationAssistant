@@ -9,9 +9,8 @@ public class QualificationFactoryTest {
 
     @Test
     public void createQualification(){
-        Qualification qualification = QualificationFactory.createQualification("National Senior Certificate", 7);
+        Qualification qualification = QualificationFactory.createQualification("National Senior Certificate");
 
         Assert.assertEquals("National Senior Certificate", qualification.getLevelOfQualifications());
-        Assert.assertEquals(7, qualification.getNumberOfSubjects());
     }
 }

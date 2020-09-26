@@ -28,6 +28,11 @@ public class SubjectRepositoryImpl implements SubjectRepository {
     }
 
     @Override
+    public void clearAll() {
+        this.subjectSet.clear();
+    }
+
+    @Override
     public Subject create(Subject subject) {
        this.subjectSet.add(subject);
        return subject;
