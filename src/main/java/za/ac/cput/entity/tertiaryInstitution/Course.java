@@ -2,10 +2,11 @@ package za.ac.cput.entity.tertiaryInstitution;
 
 import za.ac.cput.entity.previousQualification.Subject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Set;
 
-public class Course {
+public class Course implements Serializable {
 
     private String courseId;
     private String courseName;
@@ -13,6 +14,8 @@ public class Course {
     private Set<Subject> courseRequirement;
     private String courseFees;
     //Add variable to say which department this object belongs to
+
+    private Course(){}
 
     private Course(Builder builder) {
         this.courseId = builder.courseId;
