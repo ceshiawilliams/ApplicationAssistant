@@ -1,5 +1,6 @@
 package za.ac.cput.service.user.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.user.User;
 import za.ac.cput.repository.user.UserRepository;
 import za.ac.cput.repository.user.impl.UserRepositoryImpl;
@@ -8,6 +9,7 @@ import za.ac.cput.service.user.UserService;
 import java.util.HashSet;
 import java.util.Set;
 
+@Service
 public class UserServiceImpl implements UserService {
     private static UserService service = null;
     private UserRepository repository;

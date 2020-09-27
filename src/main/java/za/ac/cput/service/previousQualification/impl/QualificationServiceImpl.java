@@ -2,14 +2,11 @@ package za.ac.cput.service.previousQualification.impl;
 
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.previousQualification.Qualification;
-import za.ac.cput.entity.previousQualification.Subject;
 import za.ac.cput.entity.tertiaryInstitution.Course;
 import za.ac.cput.repository.previousQualification.QualificationRepository;
 import za.ac.cput.repository.previousQualification.impl.QualificationRepositoryImpl;
 import za.ac.cput.service.previousQualification.QualificationService;
-import za.ac.cput.service.tertiaryInstitution.impl.CourseServiceImpl;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 @Service
@@ -37,16 +34,15 @@ public class QualificationServiceImpl implements QualificationService {
 
 
     @Override
-    public Set<Qualification> getAllStartingWithD() {
+    public Set<Qualification> getAllStartingWith(String letter) {
         Set<Qualification> qualifications = getAll();
-        Set<Qualification> secureWithD = new HashSet<>();
-
-        for (Qualification qualification: qualifications){
-            if (qualification.getLevelOfQualifications().trim().toLowerCase().startsWith("d")){
-                secureWithD.add(qualification);
+        Set<Qualification> qualificationsStartingWith = new HashSet<>();
+        for (Qualification Qualification : qualifications) {
+            if (Qualification.getLevelOfQualifications().trim().toLowerCase().startsWith(letter)) {
+                qualificationsStartingWith.add(Qualification);
             }
         }
-        return secureWithD;
+        return qualificationsStartingWith;
     }
 
     /*@Override
