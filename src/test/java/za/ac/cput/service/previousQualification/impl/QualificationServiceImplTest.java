@@ -17,6 +17,7 @@ import za.ac.cput.service.tertiaryInstitution.CourseService;
 import za.ac.cput.service.tertiaryInstitution.impl.CourseServiceImpl;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.Assert.*;
@@ -25,15 +26,13 @@ import static org.junit.Assert.*;
 public class QualificationServiceImplTest {
 
     private static QualificationService service = QualificationServiceImpl.getService();
-    private static Qualification qualification = QualificationFactory.createQualification("Degree");
+    private static Qualification qualification;
 
-    //comment out
-    private static CourseService courseService = CourseServiceImpl.getService();
-    private static Course course = CourseFactory.createCourse("ADP", "ADP23","15000");
+    /*private static CourseService courseService = CourseServiceImpl.getService();
+    private static Course course = CourseFactory.createCourse("ADP", "ADP23","15000");*/
 
-    private static SubjectRepository subjectRepository = SubjectRepositoryImpl.getRepository();
     private static Subject subject = SubjectFactory.createSubject("English", 50);
-    //private static Set<Subject> subjectList
+    private static Set<Subject> subjectList = new HashSet<>();
 
     @Test
     public void d_getAll() {
@@ -46,13 +45,13 @@ public class QualificationServiceImplTest {
 
     @Test
     public void a_create() {
-       //subjectList.add(subject);
-        Subject createdSubject = subjectRepository.create(subject);
-        Course createdCourse = courseService.create(course);
+        subjectList.add(subject);
+        qualification  = QualificationFactory.createQualification("Tertiary");
+        //Course createdCourse = courseService.create(course);
         Qualification created  = service.create(qualification);
         assertEquals(qualification.getQualificationId(), created.getQualificationId());
         assertEquals(qualification.getLevelOfQualifications(), created.getLevelOfQualifications());
-        assertEquals(qualification.getSubjectList(), created.getSubjectList());
+        //assertEquals(qualification.getSubjectList(), created.getSubjectList());
         System.out.println("Created:"+ created);
     }
 
@@ -64,13 +63,13 @@ public class QualificationServiceImplTest {
 
     @Test
     public void c_update() {
-        Qualification updated = new Qualification.Builder().copy(qualification).setQualificationId("").build();
+        Qualification updated = new Qualification.Builder().copy(qualification).setLevelOfQualifications("Matric").build();
         updated =service.update(updated);
         System.out.println("updated:" + updated);
     }
 
     @Test
-    public void f_delete() {
+    public void g_delete() {
         boolean deleted = service.delete(qualification.getQualificationId());
         Assert.assertTrue(deleted);
 
@@ -78,9 +77,9 @@ public class QualificationServiceImplTest {
     }
 
     @Test
-    public void e_getAllStartingWithD() {
+    public void e_getAllStartingWith() {
 
-        Set<Qualification> secureWithD = service.getAllStartingWithD();
+        Set<Qualification> secureWithD = service.getAllStartingWith("e");
         assertEquals(1,secureWithD.size());
         System.out.println("All secure" + secureWithD);
     }
@@ -89,7 +88,7 @@ public class QualificationServiceImplTest {
     public void f_checkQualified() {
         Set<Course> courseList = courseService.getAll();
         Qualification check = service.read(qualification.getQualificationId());
-        ArrayList<Course> qualified = service.checkIfQualifies(check, courseList);
+        ArrayList<Course> qualified = service.checkIfQualifies(check);
         Assert.assertEquals(1, qualified.size());
     }*/
 }

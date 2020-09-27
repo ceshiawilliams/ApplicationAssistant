@@ -12,11 +12,11 @@ import java.util.Set;
 
 public class QualificationFactoryTest {
     private static Subject subject = SubjectFactory.createSubject("English", 50);
-    private static Set<Subject> subjectlist = new HashSet<>();
+    private static Set<Subject> subjectList = new HashSet<>();
 
     @Test
     public void createQualification(){
-        subjectlist.add(subject);
+        subjectList.add(subject);
         Qualification qualification = QualificationFactory.createQualification("National Senior Certificate");
 
         Assert.assertEquals("National Senior Certificate", qualification.getLevelOfQualifications());

@@ -8,6 +8,8 @@ public class User {
     private String confirmEmail;
     private String confirmPassword;
 
+    private User(){}
+
     private User(Builder builder){
         this.userId = builder.userId;
         this.username = builder.username;

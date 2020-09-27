@@ -1,6 +1,7 @@
 package za.ac.cput.service.previousQualification;
 
 import za.ac.cput.entity.previousQualification.Qualification;
+import za.ac.cput.entity.previousQualification.Subject;
 import za.ac.cput.entity.tertiaryInstitution.Course;
 import za.ac.cput.service.IService;
 
@@ -11,8 +12,8 @@ public interface QualificationService extends IService <Qualification, String> {
 
     Set<Qualification> getAll();
 
-    Set<Qualification> getAllStartingWithD();
+    Set<Qualification> getAllStartingWith(String letter);
 
-    //ArrayList<Course> checkIfQualifies(Qualification qualification, Set<Course> courseList);
+    //ArrayList<Course> checkIfQualifies(Qualification qualification);
 
 }

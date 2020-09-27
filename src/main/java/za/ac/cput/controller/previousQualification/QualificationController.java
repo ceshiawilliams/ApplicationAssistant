@@ -18,13 +18,37 @@ public class QualificationController {
     @PostMapping("/create")
     public Qualification create(@RequestBody Qualification qualification)
     {
-        Qualification newQualification = QualificationFactory.createQualification(qualification.getLevelOfQualifications());
-        return qualificationService.create(newQualification);
+        qualification = QualificationFactory.createQualification(qualification.getLevelOfQualifications());
+        return qualificationService.create(qualification);
     }
 
     @GetMapping("/all")
     public Set<Qualification> getAll()
     {
         return qualificationService.getAll();
+    }
+
+    @GetMapping("/read/{id}")
+    public Qualification read(@PathVariable String id)
+    {
+       return qualificationService.read(id);
+    }
+
+    @PostMapping("/update")
+    public Qualification update(@RequestBody Qualification qualification)
+    {
+        return qualificationService.update(qualification);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public boolean delete(@PathVariable String qualificationId)
+    {
+        return qualificationService.delete(qualificationId);
+    }
+
+    @GetMapping("/allwith/{letter}")
+    public Set<Qualification> getAllStartingWith(@PathVariable String letter)
+    {
+        return qualificationService.getAllStartingWith(letter);
     }
 }

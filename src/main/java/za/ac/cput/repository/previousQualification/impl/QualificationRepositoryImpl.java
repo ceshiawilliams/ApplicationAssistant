@@ -34,7 +34,6 @@ public class QualificationRepositoryImpl implements QualificationRepository {
     public Qualification create (Qualification qualification)
     {
         this.qualificationSet.add(qualification);
-        SubjectRepositoryImpl.getRepository().clearAll();
         return qualification;
     }
 
