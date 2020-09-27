@@ -69,7 +69,7 @@ public class QualificationServiceImplTest {
     }
 
     @Test
-    public void g_delete() {
+    public void f_delete() {
         boolean deleted = service.delete(qualification.getQualificationId());
         Assert.assertTrue(deleted);
 
@@ -79,7 +79,7 @@ public class QualificationServiceImplTest {
     @Test
     public void e_getAllStartingWith() {
 
-        Set<Qualification> secureWithD = service.getAllStartingWith("e");
+        Set<Qualification> secureWithD = service.getAllStartingWith("m");
         assertEquals(1,secureWithD.size());
         System.out.println("All secure" + secureWithD);
     }
