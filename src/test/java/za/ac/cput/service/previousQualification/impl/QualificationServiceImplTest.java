@@ -76,13 +76,13 @@ public class QualificationServiceImplTest {
 
     }
 
-    /*@Test
-    public void e_getAllStartingWithD() {
+    @Test
+    public void e_getAllStartingWith() {
 
-        Set<Qualification> secureWithD = service.getAllStartingWithD();
+        Set<Qualification> secureWithD = service.getAllStartingWith("e");
         assertEquals(1,secureWithD.size());
         System.out.println("All secure" + secureWithD);
-    }*/
+    }
 
     /*@Test
     public void f_checkQualified() {
