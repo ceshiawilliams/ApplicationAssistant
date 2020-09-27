@@ -5,6 +5,8 @@ public class Subject {
     private String subjectName;
     private int subjectMark;
 
+    private Subject(){}
+
     private Subject(Builder builder) {
         this.subjectId = builder.subjectId;
         this.subjectName = builder.subjectName;
