@@ -13,6 +13,6 @@ public interface QualificationService extends IService <Qualification, String> {
 
     Set<Qualification> getAllStartingWithD();
 
-    ArrayList<Course> checkIfQualifies(Qualification qualification, Set<Course> courseList);
+    //ArrayList<Course> checkIfQualifies(Qualification qualification, Set<Course> courseList);
 
 }

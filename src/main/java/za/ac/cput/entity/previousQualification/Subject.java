@@ -1,9 +1,13 @@
 package za.ac.cput.entity.previousQualification;
 
-public class Subject {
+import java.io.Serializable;
+
+public class Subject implements Serializable {
     private String subjectId;
     private String subjectName;
     private int subjectMark;
+
+    private Subject() {}
 
     private Subject(Builder builder) {
         this.subjectId = builder.subjectId;

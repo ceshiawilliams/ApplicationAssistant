@@ -48,7 +48,7 @@ public class QualificationServiceImpl implements QualificationService {
         return secureWithD;
     }
 
-    @Override
+    /*@Override
     public ArrayList<Course> checkIfQualifies(Qualification qualification, Set<Course> courseLIst) {
         ArrayList<Course> subjectsQualified = new ArrayList<>();
         for(Course course : courseLIst)
@@ -74,7 +74,7 @@ public class QualificationServiceImpl implements QualificationService {
             }
         }
         return subjectsQualified;
-    }
+    }*/
 
     @Override
     public Qualification create(Qualification qualification) {

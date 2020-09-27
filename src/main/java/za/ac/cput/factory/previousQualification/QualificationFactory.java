@@ -13,11 +13,11 @@ public class QualificationFactory {
     public static Qualification createQualification(String levelOfQualifications){
         if (StringHelper.isNullorEmpty(levelOfQualifications)) return new Qualification.Builder().build();
         String qualificationId = GenericHelper.generateRandom();
-        Set<Subject> subjectList = SubjectRepositoryImpl.getRepository().getAll();
+        //Set<Subject> subjectList = SubjectRepositoryImpl.getRepository().getAll();
         Qualification qualification = new Qualification.Builder()
                 .setQualificationId(qualificationId)
                 .setLevelOfQualifications(levelOfQualifications)
-                .setSubjectList(subjectList)
+                //.setSubjectList(subjectList)
                 .build();
 
         return  qualification;
