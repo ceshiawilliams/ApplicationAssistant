@@ -7,6 +7,7 @@ import za.ac.cput.entity.tertiaryInstitution.Course;
 import za.ac.cput.repository.previousQualification.QualificationRepository;
 import za.ac.cput.repository.previousQualification.impl.QualificationRepositoryImpl;
 import za.ac.cput.service.previousQualification.QualificationService;
+import za.ac.cput.service.tertiaryInstitution.impl.CourseServiceImpl;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -48,9 +49,10 @@ public class QualificationServiceImpl implements QualificationService {
         return secureWithD;
     }
 
-    @Override
-    public ArrayList<Course> checkIfQualifies(Qualification qualification, Set<Course> courseLIst) {
+    /*@Override
+    public ArrayList<Course> checkIfQualifies(Qualification qualification) {
         ArrayList<Course> subjectsQualified = new ArrayList<>();
+        Set<Course> courseLIst = CourseServiceImpl.getService().getAll();
         for(Course course : courseLIst)
         {
             int passed = 0;
@@ -74,7 +76,7 @@ public class QualificationServiceImpl implements QualificationService {
             }
         }
         return subjectsQualified;
-    }
+    }*/
 
     @Override
     public Qualification create(Qualification qualification) {

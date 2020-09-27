@@ -12,27 +12,30 @@ import za.ac.cput.factory.previousQualification.SubjectFactory;
 import za.ac.cput.repository.previousQualification.QualificationRepository;
 import za.ac.cput.repository.previousQualification.SubjectRepository;
 
+import java.util.HashSet;
+import java.util.Set;
+
 //import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 public class QualificationRepositoryImplTest {
 
+    private static Subject subject = SubjectFactory.createSubject("English", 50);
+    private static Set<Subject> subjectList = new HashSet<>();
+
     private static QualificationRepository repository = QualificationRepositoryImpl.getRepository();
-    private static Qualification qualification = QualificationFactory.createQualification("Tertiary");
-
-    private static SubjectRepository subjectRepository = SubjectRepositoryImpl.getRepository();
-    private static Subject subject = SubjectFactory.createSubject("App Development", 84);
-
+    private static Qualification qualification;
     @Test
     public void d_getAll() { System.out.println("Get All"+ repository.getAll());
     }
 
     @Test
     public void a_create() {
-
+        subjectList.add(subject);
+        qualification  = QualificationFactory.createQualification("Tertiary");
         Qualification created = repository.create(qualification);
         Assert.assertEquals(qualification.getLevelOfQualifications(), created.getLevelOfQualifications());
-        Assert.assertEquals(qualification.getSubjectList(), created.getSubjectList());
+        //Assert.assertEquals(qualification.getSubjectList(), created.getSubjectList());
         System.out.println("Created" + created);
 
     }
