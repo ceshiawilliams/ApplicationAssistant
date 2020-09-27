@@ -1,10 +1,14 @@
 package za.ac.cput.entity.tertiaryInstitution;
 
-public class Institution
+import java.io.Serializable;
+
+public class Institution implements Serializable
 {
     private String institutionId;
     private String institutionName;
     private String institutionCode;
+
+    private Institution () {}
 
     private Institution (Builder builder){
         this.institutionId = builder.institutionId;

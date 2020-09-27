@@ -15,12 +15,12 @@ public class CourseFactory {
     {
         if (StringHelper.isNullorEmpty(courseName)) return new Course.Builder().build();
         String courseId = GenericHelper.generateRandom();
-        Set<Subject> courseRequirement = SubjectRepositoryImpl.getRepository().getAll();
+        //Set<Subject> courseRequirement = SubjectRepositoryImpl.getRepository().getAll();
         Course course = new Course.Builder()
                 .setCourseId(courseId)
                 .setCourseName(courseName)
                 .setCourseCode(courseCode)
-                .setCourseRequirement(courseRequirement)
+                //.setCourseRequirement(courseRequirement)
                 .setCourseFees(courseFees)
                 .build();
         return course;
