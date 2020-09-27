@@ -6,6 +6,9 @@ public class PersonalDetail {
     private String contactCellNumber;
     private String qualificationType;
 
+    public PersonalDetail() {
+    }
+
     private PersonalDetail(Builder builder){
         this.personalId = builder.personalId;
         this.contactCellNumber = builder.contactCellNumber;
