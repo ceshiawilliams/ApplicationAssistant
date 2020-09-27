@@ -1,6 +1,7 @@
 package za.ac.cput.service.tertiaryInstitution.impl;
 
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.tertiaryInstitution.Institution;
 import za.ac.cput.repository.tertiaryInstitution.InstitutionRepository;
 import za.ac.cput.repository.tertiaryInstitution.impl.InstitutionRepositoryImpl;
@@ -8,7 +9,7 @@ import za.ac.cput.service.tertiaryInstitution.InstitutionService;
 
 import java.util.HashSet;
 import java.util.Set;
-
+@Service
 public class InstitutionServiceImpl implements InstitutionService {
 
     private static InstitutionService service = null;

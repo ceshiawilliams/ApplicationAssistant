@@ -5,6 +5,8 @@ public class Funding {
     private String fundingName;
     private String fundingRequirements;
 
+    private Funding (){}
+
     private Funding(Builder builder){
         this.fundingId = builder.fundingId;
         this.fundingName = builder.fundingName;

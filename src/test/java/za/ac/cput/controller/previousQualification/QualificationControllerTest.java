@@ -56,7 +56,6 @@ public class QualificationControllerTest {
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
         System.out.println(response);
-        System.out.println(response.getBody());
     }
 
     @Test
@@ -83,9 +82,20 @@ public class QualificationControllerTest {
     }
 
     @Test
-    public void e_delete() {
+    public void f_delete() {
         String url = baseURL + "delete/" + qualification.getQualificationId();
         System.out.println("URL: " + url);
         restTemplate.delete(url);
+    }
+
+    @Test
+    public void e_getAllStartingWith() {
+        String url = baseURL + "allwith/" + "g";
+        System.out.println("URL: " + url);
+
+        HttpHeaders headers = new HttpHeaders();
+        HttpEntity<String> entity = new HttpEntity<>(null, headers);
+        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+        System.out.println(response);
     }
 }

@@ -12,6 +12,8 @@ public class Faculty {
         this.facultyName = builder.facultyName;
     }
 
+    private Faculty (){}
+
     public String getFacultyId() { return facultyId; }
 
     public String getFacultyName() { return facultyName;    }

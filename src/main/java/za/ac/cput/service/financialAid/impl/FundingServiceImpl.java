@@ -1,5 +1,6 @@
 package za.ac.cput.service.financialAid.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.financialAid.Funding;
 import za.ac.cput.repository.financialAid.FundingRepository;
 import za.ac.cput.repository.financialAid.impl.FundingRepositoryImpl;
@@ -7,6 +8,7 @@ import za.ac.cput.service.financialAid.FundingService;
 
 import java.util.*;
 
+@Service
 public class FundingServiceImpl implements FundingService {
 
     private static FundingService service = null;

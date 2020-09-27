@@ -46,4 +46,9 @@ public class QualificationController {
         return qualificationService.delete(qualificationId);
     }
 
+    @GetMapping("/allwith/{letter}")
+    public Set<Qualification> getAllStartingWith(@PathVariable String letter)
+    {
+        return qualificationService.getAllStartingWith(letter);
+    }
 }

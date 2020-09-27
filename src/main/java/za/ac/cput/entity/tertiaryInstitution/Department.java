@@ -7,6 +7,8 @@ public class Department {
     private String departmentCode;
     //Add variable to say which faculty this object belongs to
 
+    private Department(){}
+
     private Department(Builder builder) {
         this.departmentId = builder.departmentId;
         this.departmentCode = builder.departmentCode;
