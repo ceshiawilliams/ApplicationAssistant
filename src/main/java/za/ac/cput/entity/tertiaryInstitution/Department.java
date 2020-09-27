@@ -2,14 +2,17 @@ package za.ac.cput.entity.tertiaryInstitution;
 
 public class Department {
 
-    private String departmentId, departmentName, departmentCode, departmentRequirements;
+    private String departmentId;
+    private String departmentName;
+    private String departmentCode;
+    //Add variable to say which faculty this object belongs to
 
+    private Department(){}
 
     private Department(Builder builder) {
         this.departmentId = builder.departmentId;
         this.departmentCode = builder.departmentCode;
         this.departmentName = builder.departmentName;
-        this.departmentRequirements = builder.departmentRequirements;
     }
 
     public String getDepartmentId() { return departmentId; }
@@ -22,17 +25,12 @@ public class Department {
         return departmentCode;
     }
 
-    public String getDepartmentRequirements() {
-        return departmentRequirements;
-    }
-
     @Override
     public String toString() {
         return "Department{" +
                 "departmentId='" + departmentId + '\'' +
                 ", departmentName='" + departmentName + '\'' +
                 ", departmentCode='" + departmentCode + '\'' +
-                ", departmentRequirements='" + departmentRequirements + '\'' +
                 '}';
     }
 
@@ -40,7 +38,6 @@ public class Department {
         private String departmentId;
         private String departmentName;
         private String departmentCode;
-        private String departmentRequirements;
 
 
         public Builder setDepartmentId (String departmentId) {
@@ -58,16 +55,10 @@ public class Department {
             return this;
         }
 
-        public Builder setDepartmentRequirements (String departmentRequirements){
-            this.departmentRequirements = departmentRequirements;
-            return this;
-        }
-
         public Builder copy (Department department) {
             this.departmentId = department.departmentId;
             this.departmentName = department.departmentName;
             this.departmentCode = department.departmentCode;
-            this.departmentRequirements = department.departmentRequirements;
             return this;
         }
 

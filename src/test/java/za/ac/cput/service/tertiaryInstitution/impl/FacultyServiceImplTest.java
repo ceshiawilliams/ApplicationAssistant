@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
 public class FacultyServiceImplTest {
 
     private static FacultyService service = FacultyServiceImpl.getService();
-    private static Faculty faculty = FacultyFactory.createFaculty("ICT123", "Information Technology", "Pass mark 60%");
+    private static Faculty faculty = FacultyFactory.createFaculty("ICT123", "Information Technology");
 
     @Test
     public void d_getAll() {

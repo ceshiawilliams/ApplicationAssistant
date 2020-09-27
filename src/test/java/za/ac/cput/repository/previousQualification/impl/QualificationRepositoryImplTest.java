@@ -6,27 +6,36 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import za.ac.cput.entity.previousQualification.Qualification;
+import za.ac.cput.entity.previousQualification.Subject;
 import za.ac.cput.factory.previousQualification.QualificationFactory;
+import za.ac.cput.factory.previousQualification.SubjectFactory;
 import za.ac.cput.repository.previousQualification.QualificationRepository;
+import za.ac.cput.repository.previousQualification.SubjectRepository;
+
+import java.util.HashSet;
+import java.util.Set;
 
 //import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 public class QualificationRepositoryImplTest {
 
-    private static QualificationRepository repository = QualificationRepositoryImpl.getRepository();
-    private static Qualification qualification = QualificationFactory.createQualification("Tertiary", 4);
+    private static Subject subject = SubjectFactory.createSubject("English", 50);
+    private static Set<Subject> subjectList = new HashSet<>();
 
+    private static QualificationRepository repository = QualificationRepositoryImpl.getRepository();
+    private static Qualification qualification;
     @Test
     public void d_getAll() { System.out.println("Get All"+ repository.getAll());
     }
 
     @Test
     public void a_create() {
-
+        subjectList.add(subject);
+        qualification  = QualificationFactory.createQualification("Tertiary");
         Qualification created = repository.create(qualification);
         Assert.assertEquals(qualification.getLevelOfQualifications(), created.getLevelOfQualifications());
-        Assert.assertEquals(qualification.getNumberOfSubjects(), created.getNumberOfSubjects());
+        //Assert.assertEquals(qualification.getSubjectList(), created.getSubjectList());
         System.out.println("Created" + created);
 
     }
