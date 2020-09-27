@@ -82,14 +82,14 @@ public class QualificationControllerTest {
     }
 
     @Test
-    public void e_delete() {
+    public void f_delete() {
         String url = baseURL + "delete/" + qualification.getQualificationId();
         System.out.println("URL: " + url);
         restTemplate.delete(url);
     }
 
     @Test
-    public void getAllStartingWith() {
+    public void e_getAllStartingWith() {
         String url = baseURL + "allwith/" + "g";
         System.out.println("URL: " + url);
 
