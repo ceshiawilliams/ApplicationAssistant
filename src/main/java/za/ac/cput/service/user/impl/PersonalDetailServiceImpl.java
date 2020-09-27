@@ -1,5 +1,6 @@
 package za.ac.cput.service.user.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.user.PersonalDetail;
 import za.ac.cput.repository.user.PersonalDetailRepository;
 import za.ac.cput.repository.user.impl.PersonalDetailRepositoryImpl;
@@ -8,6 +9,7 @@ import za.ac.cput.service.user.PersonalDetailService;
 import java.util.HashSet;
 import java.util.Set;
 
+@Service
 public class PersonalDetailServiceImpl implements PersonalDetailService {
 
     private static PersonalDetailService service = null;

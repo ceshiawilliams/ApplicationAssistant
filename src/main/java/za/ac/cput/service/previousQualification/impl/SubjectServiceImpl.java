@@ -1,5 +1,6 @@
 package za.ac.cput.service.previousQualification.impl;
 
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.previousQualification.Subject;
 import za.ac.cput.repository.previousQualification.SubjectRepository;
 import za.ac.cput.repository.previousQualification.impl.SubjectRepositoryImpl;
@@ -7,6 +8,7 @@ import za.ac.cput.service.previousQualification.SubjectService;
 
 import java.util.*;
 
+@Service
 public class SubjectServiceImpl implements SubjectService {
 
     private static SubjectService service = null;
