@@ -5,7 +5,7 @@ public class Department {
     private String departmentId;
     private String departmentName;
     private String departmentCode;
-    //Add variable to say which faculty this object belongs to
+    //Create entity DepartmentCourse - shows which courses belong to which department
 
     private Department(){}
 

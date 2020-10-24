@@ -1,11 +1,17 @@
 package za.ac.cput.entity.previousQualification;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Subject {
+
+    @Id
     private String subjectId;
     private String subjectName;
     private int subjectMark;
 
-    private Subject(){}
+    protected Subject(){}
 
     private Subject(Builder builder) {
         this.subjectId = builder.subjectId;
