@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class Qualification {
     private String qualificationId;
-    private Set<Subject> subjectList;
+    private Set<Subject> subjectList;// Remove and create an entity qualificationSubject
     private String levelOfQualifications;
 
     private Qualification(){}
