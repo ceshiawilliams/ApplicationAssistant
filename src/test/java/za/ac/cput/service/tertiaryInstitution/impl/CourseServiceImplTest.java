@@ -6,17 +6,11 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
-import za.ac.cput.entity.previousQualification.Subject;
 import za.ac.cput.entity.tertiaryInstitution.Course;
-import za.ac.cput.entity.tertiaryInstitution.Department;
-import za.ac.cput.factory.previousQualification.SubjectFactory;
 import za.ac.cput.factory.tertiaryInstitution.CourseFactory;
-import za.ac.cput.repository.previousQualification.SubjectRepository;
-import za.ac.cput.repository.previousQualification.impl.SubjectRepositoryImpl;
 import za.ac.cput.service.tertiaryInstitution.CourseService;
 
 import java.util.Set;
-//Remove the unused imports
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CourseServiceImplTest {
 

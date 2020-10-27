@@ -3,7 +3,6 @@ package za.ac.cput.entity.tertiaryInstitution;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
 import java.util.Objects;
 
 

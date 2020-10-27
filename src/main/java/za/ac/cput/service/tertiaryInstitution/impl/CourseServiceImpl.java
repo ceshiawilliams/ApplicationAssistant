@@ -5,9 +5,6 @@ import org.springframework.stereotype.Service;
 import za.ac.cput.entity.tertiaryInstitution.Course;
 import za.ac.cput.repository.tertiaryInstitution.CourseRepository;
 import za.ac.cput.service.tertiaryInstitution.CourseService;
-import za.ac.cput.service.tertiaryInstitution.DepartmentService;
-import za.ac.cput.service.tertiaryInstitution.FacultyService;
-
 import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
