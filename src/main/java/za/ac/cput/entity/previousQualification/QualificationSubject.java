@@ -1,16 +1,17 @@
+/*
 package za.ac.cput.entity.previousQualification;
 
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
+
 
 @Entity
-@IdClass(QualificationSubjectId.class)
 public class QualificationSubject   {
 
     @Id
-    private String QualificationId, SubjectId;
+    private String QualificationId;
+    private String SubjectId;
 
 
     protected QualificationSubject() {}
@@ -69,3 +70,4 @@ public class QualificationSubject   {
     }
 
     }
+*/
