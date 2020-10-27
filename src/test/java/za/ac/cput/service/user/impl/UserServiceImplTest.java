@@ -4,10 +4,9 @@ import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.entity.user.User;
 import za.ac.cput.factory.user.UserFactory;
-import za.ac.cput.repository.user.UserRepository;
-import za.ac.cput.repository.user.impl.UserRepositoryImpl;
 import za.ac.cput.service.user.UserService;
 
 import java.util.Set;
@@ -16,7 +15,8 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class UserServiceImplTest {
 
-    private static UserService service = UserServiceImpl.getService();
+    @Autowired
+    private  UserService service ;
     private static User user = UserFactory.createUser("Abdullah", "abdullahryklief@gmail.com", "Password123", "abdullahryklief@gmail.com", "Password123");
 
     @Test
