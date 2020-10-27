@@ -6,18 +6,12 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.entity.tertiaryInstitution.Faculty;
-import za.ac.cput.entity.user.User;
 import za.ac.cput.factory.tertiaryInstitution.FacultyFactory;
-import za.ac.cput.factory.user.UserFactory;
 import za.ac.cput.service.tertiaryInstitution.FacultyService;
-import za.ac.cput.service.user.UserService;
-import za.ac.cput.service.user.impl.UserServiceImpl;
+
 
 import java.util.Set;
 
-import static org.junit.Assert.*;
-
-//Remove the unused imports
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class FacultyServiceImplTest {
 

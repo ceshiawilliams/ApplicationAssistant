@@ -10,7 +10,7 @@ public class Faculty {
     private String facultyId;
     private String facultyName;
     private String facultyCode;
-    //Create entity FacultyDepartment - shows which departments belong to which faculty
+    //ToDo: Create entity FacultyDepartment - shows which departments belong to which faculty
 
     private Faculty (Builder builder){
         this.facultyId = builder.facultyId;
