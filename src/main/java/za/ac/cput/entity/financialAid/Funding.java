@@ -1,11 +1,18 @@
 package za.ac.cput.entity.financialAid;
 
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Funding {
+
+    @Id
     private String fundingId;
     private String fundingName;
     private String fundingRequirements;
 
-    private Funding (){}
+    protected Funding (){}
 
     private Funding(Builder builder){
         this.fundingId = builder.fundingId;
