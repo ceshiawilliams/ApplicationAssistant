@@ -1,6 +1,13 @@
 package za.ac.cput.entity.user;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.Objects;
+
+@Entity
 public class User {
+
+    @Id
     private String userId;
     private String username;
     private String userEmail;
@@ -8,7 +15,7 @@ public class User {
     private String confirmEmail;
     private String confirmPassword;
 
-    private User(){}
+    protected User(){}
 
     private User(Builder builder){
         this.userId = builder.userId;
@@ -104,5 +111,18 @@ public class User {
         public User build(){
             return new User(this);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return userId.equals(user.userId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userId);
     }
 }

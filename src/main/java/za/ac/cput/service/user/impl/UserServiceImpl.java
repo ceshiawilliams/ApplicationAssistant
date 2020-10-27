@@ -1,36 +1,26 @@
 package za.ac.cput.service.user.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.user.User;
 import za.ac.cput.repository.user.UserRepository;
-import za.ac.cput.repository.user.impl.UserRepositoryImpl;
 import za.ac.cput.service.user.UserService;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
-    private static UserService service = null;
+
+    @Autowired
     private UserRepository repository;
 
-    private UserServiceImpl()
-    {
-        this.repository = UserRepositoryImpl.getRepository();
-    }
 
-    public static UserService getService()
-    {
-        if(service == null)
-        {
-            service = new UserServiceImpl();
-        }
-        return service;
-    }
     @Override
     public Set<User> getAll()
     {
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
@@ -49,24 +39,29 @@ public class UserServiceImpl implements UserService {
     @Override
     public User create(User user)
     {
-        return this.repository.create(user);
+        return this.repository.save(user);
     }
 
     @Override
     public User read(String userId)
     {
-        return this.repository.read(userId);
+        return this.repository.findById(userId).orElseGet(null);
     }
 
     @Override
     public User update(User user)
     {
-        return this.repository.update(user);
+        if(this.repository.existsById(user.getUserId())){
+            return this.repository.save(user);
+        }
+        return null;
     }
 
     @Override
     public boolean delete(String userId)
     {
-        return this.repository.delete(userId);
+        this.repository.deleteById(userId);
+        if(this.repository.existsById(userId)) return false;
+        else return true;
     }
 }

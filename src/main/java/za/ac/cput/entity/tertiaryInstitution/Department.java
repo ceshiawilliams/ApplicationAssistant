@@ -1,13 +1,21 @@
 package za.ac.cput.entity.tertiaryInstitution;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import java.util.Objects;
+
+@Entity
+//@IdClass(DepartmentCourse.class)
 public class Department {
 
+    @Id
     private String departmentId;
     private String departmentName;
     private String departmentCode;
     //Create entity DepartmentCourse - shows which courses belong to which department
 
-    private Department(){}
+    protected Department(){}
 
     private Department(Builder builder) {
         this.departmentId = builder.departmentId;
@@ -66,8 +74,21 @@ public class Department {
 
         }
 
-
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Department that = (Department) o;
+        return departmentId.equals(that.departmentId);
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(departmentId);
+    }
+}
+
+
 
 
 

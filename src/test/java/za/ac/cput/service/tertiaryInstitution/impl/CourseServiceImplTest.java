@@ -1,11 +1,14 @@
+
 package za.ac.cput.service.tertiaryInstitution.impl;
 
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.entity.previousQualification.Subject;
 import za.ac.cput.entity.tertiaryInstitution.Course;
+import za.ac.cput.entity.tertiaryInstitution.Department;
 import za.ac.cput.factory.previousQualification.SubjectFactory;
 import za.ac.cput.factory.tertiaryInstitution.CourseFactory;
 import za.ac.cput.repository.previousQualification.SubjectRepository;
@@ -14,15 +17,16 @@ import za.ac.cput.service.tertiaryInstitution.CourseService;
 
 import java.util.Set;
 
-import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CourseServiceImplTest {
 
-    private static CourseService service = CourseServiceImpl.getService();
+    @Autowired
+    private CourseService service;
     private static Course course = CourseFactory.createCourse("ADP", "ADP23","15000");
 
-    private static SubjectRepository subjectRepository = SubjectRepositoryImpl.getRepository();
-    private static Subject subject = SubjectFactory.createSubject("App Development", 84);
+//    private static SubjectRepository subjectRepository = SubjectRepositoryImpl.getRepository();
+//    private static Subject subject = SubjectFactory.createSubject("App Development", 84);
+
 
     @Test
     public void d_getAll() {
@@ -32,16 +36,28 @@ public class CourseServiceImplTest {
     }
 
     @Test
+    public void e_getAllStartingWith() {
+        Set<Course> courses = service.getAllStartingWith("a");
+        Assert.assertEquals(1, courses.size());
+        System.out.println("All courses: " + courses);
+    }
+
+    @Test
     public void a_create() {
-        service.getAll().clear();
-        Subject createdSubject = subjectRepository.create(subject);
         Course created = service.create(course);
-        Assert.assertEquals(course.getCourseId(), created.getCourseId());
-        Assert.assertEquals(course.getCourseName(), created.getCourseName());
         Assert.assertEquals(course.getCourseCode(), created.getCourseCode());
-        Assert.assertEquals(course.getCourseRequirement(), created.getCourseRequirement());
+        Assert.assertEquals(course.getCourseName(), created.getCourseName());
         Assert.assertEquals(course.getCourseFees(), created.getCourseFees());
         System.out.println("Created: " + created);
+//        service.getAll().clear();
+//      //  Subject createdSubject = subjectRepository.create(subject);
+//        Course created = service.create(course);
+//        Assert.assertEquals(course.getCourseId(), created.getCourseId());
+//        Assert.assertEquals(course.getCourseName(), created.getCourseName());
+//        Assert.assertEquals(course.getCourseCode(), created.getCourseCode());
+//       // Assert.assertEquals(course.getCourseRequirement(), created.getCourseRequirement());
+//        Assert.assertEquals(course.getCourseFees(), created.getCourseFees());
+//        System.out.println("Created: " + created);
     }
 
     @Test
@@ -63,10 +79,5 @@ public class CourseServiceImplTest {
         Assert.assertTrue(deleted);
     }
 
-    @Test
-    public void e_getAllStartingWith() {
-        Set<Course> courses = service.getAllStartingWith("a");
-        Assert.assertEquals(1, courses.size());
-        System.out.println("All courses: " + courses);
-    }
+
 }

@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.entity.tertiaryInstitution.Faculty;
 import za.ac.cput.entity.user.User;
 import za.ac.cput.factory.tertiaryInstitution.FacultyFactory;
@@ -18,7 +19,8 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class FacultyServiceImplTest {
 
-    private static FacultyService service = FacultyServiceImpl.getService();
+    @Autowired
+    private FacultyService service;
     private static Faculty faculty = FacultyFactory.createFaculty("ICT123", "Information Technology");
 
     @Test
