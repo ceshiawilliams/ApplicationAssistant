@@ -1,37 +1,27 @@
 package za.ac.cput.service.user.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.user.PersonalDetail;
 import za.ac.cput.repository.user.PersonalDetailRepository;
-import za.ac.cput.repository.user.impl.PersonalDetailRepositoryImpl;
 import za.ac.cput.service.user.PersonalDetailService;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class PersonalDetailServiceImpl implements PersonalDetailService {
 
-    private static PersonalDetailService service = null;
+
+    @Autowired
     private PersonalDetailRepository repository;
 
-    private PersonalDetailServiceImpl()
-    {
-        this.repository = PersonalDetailRepositoryImpl.getRepository();
-    }
 
-    public static PersonalDetailService getService()
-    {
-        if(service == null)
-        {
-            service = new PersonalDetailServiceImpl();
-        }
-        return service;
-    }
 
     @Override
     public Set<PersonalDetail> getAll() {
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
@@ -47,21 +37,27 @@ public class PersonalDetailServiceImpl implements PersonalDetailService {
 
     @Override
     public PersonalDetail create(PersonalDetail personalDetail) {
-        return this.repository.create(personalDetail);
+        return this.repository.save(personalDetail);
     }
 
     @Override
     public PersonalDetail read(String id) {
-        return this.repository.read(id);
+        return this.repository.findById(id).orElse(null);
     }
 
     @Override
     public PersonalDetail update(PersonalDetail personalDetail) {
-        return this.repository.update(personalDetail);
+
+        if(this.repository.existsById(personalDetail.getPersonalId())){
+            return this.repository.save(personalDetail);
+        }
+        return null;
     }
 
     @Override
     public boolean delete(String id) {
-        return this.repository.delete(id);
+        this.repository.deleteById(id);
+        if(this.repository.existsById(id)) return false;
+        else return true;
     }
 }

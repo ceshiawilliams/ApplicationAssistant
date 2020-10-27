@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class FundingServiceImplTest {
 
-    private static FundingService service = FundingServiceImpl.getService();
+    private static FundingService service = FundingServiceImpl.getService();//Remove the static, and everything after the =
     private static Funding funding = FundingFactory.createFunding("Metropolitan", "matric");
 
     @Test

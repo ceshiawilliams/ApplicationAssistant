@@ -1,13 +1,9 @@
 package za.ac.cput.factory.tertiaryInstitution;
 
-
-import za.ac.cput.entity.previousQualification.Subject;
 import za.ac.cput.entity.tertiaryInstitution.Course;
-import za.ac.cput.repository.previousQualification.impl.SubjectRepositoryImpl;
 import za.ac.cput.util.GenericHelper;
 import za.ac.cput.util.StringHelper;
 
-import java.util.Set;
 
 public class CourseFactory {
 

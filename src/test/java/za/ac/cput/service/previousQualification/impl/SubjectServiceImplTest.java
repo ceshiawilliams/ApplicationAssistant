@@ -2,6 +2,7 @@ package za.ac.cput.service.previousQualification.impl;
 
 import org.junit.*;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.entity.previousQualification.Subject;
 import za.ac.cput.factory.previousQualification.SubjectFactory;
 import za.ac.cput.service.previousQualification.SubjectService;
@@ -13,7 +14,8 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SubjectServiceImplTest {
 
-    private static SubjectService service = SubjectServiceImpl.getService();
+    @Autowired
+    private SubjectService service;
     private static Subject subject = SubjectFactory.createSubject("App Development", 84);
 
     @Test

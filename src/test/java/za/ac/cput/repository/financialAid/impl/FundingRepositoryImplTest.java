@@ -9,6 +9,7 @@ import za.ac.cput.factory.financialAid.FundingFactory;
 import za.ac.cput.repository.financialAid.FundingRepository;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+//Comment out this test
 public class FundingRepositoryImplTest {
 
     private static FundingRepository repository = FundingRepositoryImpl.getRepository();

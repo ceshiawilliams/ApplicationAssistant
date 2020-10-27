@@ -17,7 +17,7 @@ import java.util.Set;
 
 //import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-
+//Comment out this test
 public class QualificationRepositoryImplTest {
 
     private static Subject subject = SubjectFactory.createSubject("English", 50);

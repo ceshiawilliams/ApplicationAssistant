@@ -25,7 +25,7 @@ import static org.junit.Assert.*;
 
 public class QualificationServiceImplTest {
 
-    private static QualificationService service = QualificationServiceImpl.getService();
+    private static QualificationService service = QualificationServiceImpl.getService();//Remove the static, and everything after the =
     private static Qualification qualification;
 
     /*private static CourseService courseService = CourseServiceImpl.getService();

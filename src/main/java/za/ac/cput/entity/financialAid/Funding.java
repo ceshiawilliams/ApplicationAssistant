@@ -1,11 +1,19 @@
 package za.ac.cput.entity.financialAid;
 
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.Objects;
+
+@Entity
 public class Funding {
+
+    @Id
     private String fundingId;
     private String fundingName;
     private String fundingRequirements;
 
-    private Funding (){}
+    protected Funding (){}
 
     private Funding(Builder builder){
         this.fundingId = builder.fundingId;
@@ -59,5 +67,18 @@ public class Funding {
             return new Funding(this);
         }
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Funding funding = (Funding) o;
+        return fundingId.equals(funding.fundingId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fundingId);
     }
 }

@@ -1,6 +1,13 @@
 package za.ac.cput.entity.user;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+
+@Entity
 public class PersonalDetail {
+
+    @Id
     private String personalId;
     private String contactEmail;
     private String contactCellNumber;

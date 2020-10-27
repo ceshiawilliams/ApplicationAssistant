@@ -5,6 +5,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.entity.tertiaryInstitution.Institution;
 import za.ac.cput.factory.tertiaryInstitution.InstitutionFactory;
 import za.ac.cput.service.tertiaryInstitution.InstitutionService;
@@ -18,7 +19,8 @@ import java.util.Set;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class InstitutionServiceImplTest {
 
-    private static InstitutionService service = InstitutionServiceImpl.getService();
+    @Autowired
+    private InstitutionService service;
     private static Institution institution = InstitutionFactory.createInstitution("CPUT", "229");
 
     @Test

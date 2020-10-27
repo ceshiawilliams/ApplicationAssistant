@@ -1,35 +1,28 @@
 package za.ac.cput.service.previousQualification.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.previousQualification.Qualification;
-import za.ac.cput.entity.tertiaryInstitution.Course;
 import za.ac.cput.repository.previousQualification.QualificationRepository;
-import za.ac.cput.repository.previousQualification.impl.QualificationRepositoryImpl;
 import za.ac.cput.service.previousQualification.QualificationService;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
+
 @Service
 public class QualificationServiceImpl implements QualificationService {
 
-    private static QualificationService service = null;
+    private static QualificationService service = null;//Remove this
+
+    @Autowired
     private QualificationRepository repository;
 
-    public QualificationServiceImpl(){
-
-        this.repository = QualificationRepositoryImpl.getRepository();
-    }
-
-    public static QualificationService getService(){
-
-        if (service == null) service = new QualificationServiceImpl();
-
-        return service;
-    }
 
     @Override
     public Set<Qualification> getAll() {
-        return this.repository.getAll();
+
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
 
@@ -76,21 +69,30 @@ public class QualificationServiceImpl implements QualificationService {
 
     @Override
     public Qualification create(Qualification qualification) {
-        return this.repository.create(qualification);
+        return this.repository.save(qualification);
     }
 
     @Override
     public Qualification read(String s) {
-        return this.repository.read(s);
+        return this.repository.findById(s).orElseGet(null);
     }
 
     @Override
     public Qualification update(Qualification qualification) {
-        return this.repository.update(qualification);
+        if (this.repository.existsById(qualification.getQualificationId()))
+        return this.repository.save(qualification);
+
+        return null;
     }
 
     @Override
     public boolean delete(String s) {
-        return this.repository.delete(s);
+
+         this.repository.deleteById(s);
+
+        if (this.repository.existsById(s)) {
+            return false;
+        }
+        else return true;
     }
 }

@@ -1,11 +1,13 @@
 package za.ac.cput.repository.financialAid;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.financialAid.Funding;
 import za.ac.cput.repository.IRepository;
 
 import java.util.Set;
-
-public interface FundingRepository extends IRepository<Funding, String>
+@Repository
+public interface FundingRepository extends JpaRepository<Funding, String>
 {
-    Set<Funding> getAll();
+    Set<Funding> getAll();//Remove this
 }
