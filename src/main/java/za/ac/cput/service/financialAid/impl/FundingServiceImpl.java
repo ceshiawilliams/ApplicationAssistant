@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 @Service
 public class FundingServiceImpl implements FundingService {
 
-    private static FundingService service = null;//Remove this
 
     @Autowired
     private FundingRepository repository;
