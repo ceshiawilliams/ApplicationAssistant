@@ -11,9 +11,8 @@ public class Course implements Serializable {
     private String courseId;
     private String courseName;
     private String courseCode;
-    private Set<Subject> courseRequirement;
+    private Set<Subject> courseRequirement;//Remove and add entity courseSubject
     private String courseFees;
-    //Add variable to say which department this object belongs to
 
     private Course(){}
 
