@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 @Service
 public class QualificationServiceImpl implements QualificationService {
 
-    private static QualificationService service = null;//Remove this
 
     @Autowired
     private QualificationRepository repository;
