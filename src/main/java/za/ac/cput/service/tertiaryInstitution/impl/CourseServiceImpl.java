@@ -1,37 +1,27 @@
 package za.ac.cput.service.tertiaryInstitution.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.tertiaryInstitution.Course;
 import za.ac.cput.repository.tertiaryInstitution.CourseRepository;
-import za.ac.cput.repository.tertiaryInstitution.impl.CourseRepositoryImpl;
 import za.ac.cput.service.tertiaryInstitution.CourseService;
+import za.ac.cput.service.tertiaryInstitution.DepartmentService;
+import za.ac.cput.service.tertiaryInstitution.FacultyService;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class CourseServiceImpl implements CourseService {
 
-    private static CourseService service = null;
+    @Autowired
     private CourseRepository repository;
 
-    private CourseServiceImpl()
-    {
-        this.repository = CourseRepositoryImpl.getRepository();
-    }
-
-    public static CourseService getService()
-    {
-        if(service == null)
-        {
-            service = new CourseServiceImpl();
-        }
-        return service;
-    }
 
     @Override
     public Set<Course> getAll() {
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
@@ -48,21 +38,31 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     public Course create(Course course) {
-        return this.repository.create(course);
+        return this.repository.save(course);
     }
 
     @Override
     public Course read(String id) {
-        return this.repository.read(id);
+        return this.repository.findById(id).orElseGet(null);
     }
 
     @Override
     public Course update(Course course) {
-        return this.repository.update(course);
+        //return this.repository.save(course);
+        return create(course);
+
+//        if (this.repository.existsById(course.getCourseId())){
+//            return this.repository.save(course);
+//
+//        }
+//
+//        return  null;
     }
 
     @Override
     public boolean delete(String id) {
-        return this.repository.delete(id);
+        this.repository.deleteById(id);
+       if(this.repository.existsById(id)) return false;
+       else return true;
     }
 }

@@ -1,10 +1,13 @@
 package za.ac.cput.repository.tertiaryInstitution;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.tertiaryInstitution.Course;
 import za.ac.cput.repository.IRepository;
 import java.util.*;
 
-public interface CourseRepository extends IRepository<Course, String> {
-    Set<Course> getAll();
+@Repository
+public interface CourseRepository extends JpaRepository<Course, String>{
+
 
 }
