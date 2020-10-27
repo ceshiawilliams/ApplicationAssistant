@@ -1,14 +1,18 @@
 package za.ac.cput.entity.previousQualification;
 
 
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+import java.util.Objects;
+import java.util.Set;
+@Entity
 public class Qualification {
-    private String qualificationId;
+    @Id private String qualificationId;
     private Set<Subject> subjectList;// Remove and create an entity qualificationSubject
     private String levelOfQualifications;
 
-    private Qualification(){}
+    protected Qualification(){}
 
     private Qualification(Builder builder) {
         this.qualificationId = builder.qualificationId;
@@ -18,7 +22,7 @@ public class Qualification {
 
     public String getQualificationId() { return qualificationId; }
 
-    public Set<Subject> getSubjectList() {
+ public Set<Subject> getSubjectList() {
         return subjectList;
     }
 
@@ -65,5 +69,18 @@ public class Qualification {
         public Qualification build(){
             return new Qualification(this);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Qualification that = (Qualification) o;
+        return qualificationId.equals(that.qualificationId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(qualificationId);
     }
 }
