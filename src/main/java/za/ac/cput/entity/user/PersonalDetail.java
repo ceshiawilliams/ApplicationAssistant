@@ -4,7 +4,7 @@ public class PersonalDetail {
     private String personalId;
     private String contactEmail;
     private String contactCellNumber;
-    private String qualificationType;
+    private String qualificationType;//Remove and add entity personalDetailQualification
 
     public PersonalDetail() {
     }

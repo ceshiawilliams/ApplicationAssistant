@@ -4,7 +4,7 @@ public class Faculty {
     private String facultyId;
     private String facultyName;
     private String facultyCode;
-    //Add variable to say which institution this object belongs to
+    //Create entity FacultyDepartment - shows which departments belong to which faculty
 
     private Faculty (Builder builder){
         this.facultyId = builder.facultyId;
