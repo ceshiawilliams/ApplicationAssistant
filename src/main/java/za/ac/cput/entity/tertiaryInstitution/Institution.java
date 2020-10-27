@@ -12,7 +12,7 @@ public class Institution implements Serializable
     private String institutionId;
     private String institutionName;
     private String institutionCode;
-    //Create entity institutionFaculty - shows which faculties belong to which institution
+    //ToDo: Create entity institutionFaculty - shows which faculties belong to which institution
 
     protected Institution () {}
 
