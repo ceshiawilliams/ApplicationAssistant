@@ -1,6 +1,12 @@
 package za.ac.cput.entity.tertiaryInstitution;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.Objects;
+
+@Entity
 public class Faculty {
+    @Id
     private String facultyId;
     private String facultyName;
     private String facultyCode;
@@ -12,7 +18,7 @@ public class Faculty {
         this.facultyName = builder.facultyName;
     }
 
-    private Faculty (){}
+    protected Faculty (){}
 
     public String getFacultyId() { return facultyId; }
 
@@ -59,5 +65,18 @@ public class Faculty {
         public Faculty build(){
             return new Faculty(this);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Faculty faculty = (Faculty) o;
+        return facultyId.equals(faculty.facultyId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(facultyId);
     }
 }

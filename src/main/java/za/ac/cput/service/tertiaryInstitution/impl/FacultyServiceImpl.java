@@ -1,35 +1,23 @@
 package za.ac.cput.service.tertiaryInstitution.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.tertiaryInstitution.Faculty;
 import za.ac.cput.repository.tertiaryInstitution.FacultyRepository;
-import za.ac.cput.repository.tertiaryInstitution.impl.FacultyRepositoryImpl;
 import za.ac.cput.service.tertiaryInstitution.FacultyService;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class FacultyServiceImpl implements FacultyService {
-    private static FacultyService service = null;
+    @Autowired
     private FacultyRepository repository;
 
-    private FacultyServiceImpl()
-    {
-        this.repository = FacultyRepositoryImpl.getRepository();
-    }
-
-    public static FacultyService getService()
-    {
-        if(service == null)
-        {
-            service = new FacultyServiceImpl();
-        }
-        return service;
-    }
     @Override
     public Set<Faculty> getAll() {
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
@@ -47,21 +35,23 @@ public class FacultyServiceImpl implements FacultyService {
 
     @Override
     public Faculty create(Faculty faculty) {
-        return this.repository.create(faculty);
+        return this.repository.save(faculty);
     }
 
     @Override
     public Faculty read(String FacultyId) {
-        return this.repository.read(FacultyId);
+        return this.repository.findById(FacultyId).orElseGet(null);
     }
 
     @Override
     public Faculty update(Faculty faculty) {
-        return this.repository.update(faculty);
+        return this.repository.save(faculty);
     }
 
     @Override
     public boolean delete(String FacultyId) {
-        return this.repository.delete(FacultyId);
+        this.repository.deleteById(FacultyId);
+        if (this.repository.existsById(FacultyId)) return false;
+        else return true;
     }
 }
