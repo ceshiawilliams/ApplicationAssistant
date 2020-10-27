@@ -1,32 +1,25 @@
 package za.ac.cput.service.previousQualification.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.previousQualification.Subject;
 import za.ac.cput.repository.previousQualification.SubjectRepository;
-import za.ac.cput.repository.previousQualification.impl.SubjectRepositoryImpl;
 import za.ac.cput.service.previousQualification.SubjectService;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class SubjectServiceImpl implements SubjectService {
 
-    private static SubjectService service = null;
+    @Autowired
     private SubjectRepository repository;
-
-    private SubjectServiceImpl() {
-        this.repository = SubjectRepositoryImpl.getRepository();
-    }
-
-    public static SubjectService getService() {
-        if(service == null) service = new SubjectServiceImpl();
-        return service;
-    }
 
     @Override
     public Set<Subject> getAll() {
 
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
@@ -44,24 +37,28 @@ public class SubjectServiceImpl implements SubjectService {
     @Override
     public Subject create(Subject subject) {
 
-        return this.repository.create(subject);
+        return this.repository.save(subject);
     }
 
     @Override
-    public Subject read(String s) {
+    public Subject read(String id) {
 
-        return this.repository.read(s);
+        return this.repository.findById(id).orElseGet(null);
     }
 
     @Override
     public Subject update(Subject subject) {
 
-        return this.repository.update(subject);
+        return create(subject);
     }
 
     @Override
-    public boolean delete(String s) {
-
-        return this.repository.delete(s);
+    public boolean delete(String id) {
+        this.repository.deleteById(id);
+        if(this.repository.existsById(id)){
+            return false;
+        }else{
+            return true;
+        }
     }
 }
