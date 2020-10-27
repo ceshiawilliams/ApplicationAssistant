@@ -9,5 +9,5 @@ import java.util.Set;
 @Repository
 public interface FundingRepository extends JpaRepository<Funding, String>
 {
-    Set<Funding> getAll();
+    Set<Funding> getAll();//Remove this
 }

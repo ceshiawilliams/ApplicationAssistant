@@ -12,5 +12,5 @@ import java.util.Set;
 @Repository
 public interface QualificationRepository extends JpaRepository<Qualification, String> {
 
-    Set<Qualification> getAll();
+    Set<Qualification> getAll();//Remove this
 }

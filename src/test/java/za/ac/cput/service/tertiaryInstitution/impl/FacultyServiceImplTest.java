@@ -16,6 +16,8 @@ import za.ac.cput.service.user.impl.UserServiceImpl;
 import java.util.Set;
 
 import static org.junit.Assert.*;
+
+//Remove the unused imports
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class FacultyServiceImplTest {
 

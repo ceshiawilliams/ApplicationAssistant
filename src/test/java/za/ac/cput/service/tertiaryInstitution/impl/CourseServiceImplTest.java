@@ -16,7 +16,7 @@ import za.ac.cput.repository.previousQualification.impl.SubjectRepositoryImpl;
 import za.ac.cput.service.tertiaryInstitution.CourseService;
 
 import java.util.Set;
-
+//Remove the unused imports
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CourseServiceImplTest {
 

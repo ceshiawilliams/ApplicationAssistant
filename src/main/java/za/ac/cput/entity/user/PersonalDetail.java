@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 
 @Entity
-@IdClass(PersonalDetailQualification.class)
+@IdClass(PersonalDetailQualification.class)//Remove this
 public class PersonalDetail {
 
     @Id
