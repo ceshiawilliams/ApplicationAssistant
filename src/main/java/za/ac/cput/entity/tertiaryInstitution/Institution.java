@@ -1,15 +1,20 @@
 package za.ac.cput.entity.tertiaryInstitution;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.Objects;
 
+@Entity
 public class Institution implements Serializable
 {
+    @Id
     private String institutionId;
     private String institutionName;
     private String institutionCode;
-    //Create entity institutionFaculty - shows which faculties belong to which institution
+    //ToDo: Create entity institutionFaculty - shows which faculties belong to which institution
 
-    private Institution () {}
+    protected Institution () {}
 
     private Institution (Builder builder){
         this.institutionId = builder.institutionId;
@@ -66,5 +71,18 @@ public class Institution implements Serializable
         public Institution build() {
             return new Institution(this);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Institution that = (Institution) o;
+        return institutionId.equals(that.institutionId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(institutionId);
     }
 }

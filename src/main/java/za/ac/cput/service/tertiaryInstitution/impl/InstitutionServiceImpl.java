@@ -1,34 +1,25 @@
 package za.ac.cput.service.tertiaryInstitution.impl;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.tertiaryInstitution.Institution;
 import za.ac.cput.repository.tertiaryInstitution.InstitutionRepository;
-import za.ac.cput.repository.tertiaryInstitution.impl.InstitutionRepositoryImpl;
 import za.ac.cput.service.tertiaryInstitution.InstitutionService;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
+
 @Service
 public class InstitutionServiceImpl implements InstitutionService {
 
-    private static InstitutionService service = null;
+    @Autowired
     private InstitutionRepository repository;
-
-    private InstitutionServiceImpl(){
-        this.repository = InstitutionRepositoryImpl.getRepository();
-    }
-
-    public static InstitutionService getService() {
-        if (service == null) service = new InstitutionServiceImpl();
-
-        return service;
-    }
-
 
     @Override
     public Set<Institution> getAll() {
-        return this.repository.getAll();
+        return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override
@@ -46,21 +37,26 @@ public class InstitutionServiceImpl implements InstitutionService {
 
     @Override
     public Institution create(Institution institution) {
-        return this.repository.create(institution);
+        return this.repository.save(institution);
     }
 
     @Override
     public Institution read(String s) {
-        return this.repository.read(s);
+        return this.repository.findById(s).orElseGet(null);
     }
 
     @Override
     public Institution update(Institution institution) {
-        return this.repository.update(institution);
+        if (this.repository.existsById(institution.getInstitutionId())) {
+            return this.repository.save(institution);
+        }
+        return null;
     }
 
     @Override
     public boolean delete(String s) {
-        return this.repository.delete(s);
+        this.repository.deleteById(s);
+        if (this.repository.existsById(s)) return false;
+        else return true;
     }
 }

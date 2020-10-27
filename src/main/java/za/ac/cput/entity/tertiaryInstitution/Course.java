@@ -1,26 +1,30 @@
 package za.ac.cput.entity.tertiaryInstitution;
 
-import za.ac.cput.entity.previousQualification.Subject;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.Objects;
 
-public class Course implements Serializable {
 
+@Entity
+//@IdClass(CourseSubject.class)
+public class Course {
+
+    @Id
     private String courseId;
     private String courseName;
     private String courseCode;
-    private Set<Subject> courseRequirement;//Remove and add entity courseSubject
     private String courseFees;
 
-    private Course(){}
+
+
+
+    protected Course(){}
 
     private Course(Builder builder) {
         this.courseId = builder.courseId;
         this.courseCode = builder.courseCode;
         this.courseName = builder.courseName;
-        this.courseRequirement = builder.courseRequirement;
         this.courseFees = builder.courseFees;
     }
 
@@ -34,10 +38,6 @@ public class Course implements Serializable {
         return courseCode;
     }
 
-    public Set<Subject> getCourseRequirement() {
-        return courseRequirement;
-    }
-
     public String getCourseFees() {
         return courseFees;
     }
@@ -48,7 +48,6 @@ public class Course implements Serializable {
                 "courseId='" + courseId + '\'' +
                 ", courseName='" + courseName + '\'' +
                 ", courseCode='" + courseCode + '\'' +
-                ", courseRequirement='" + courseRequirement + '\'' +
                 ", courseFees=' R" + courseFees + '\'' +
                 '}';
     }
@@ -57,7 +56,6 @@ public class Course implements Serializable {
         private String courseId;
         private String courseName;
         private String courseCode;
-        private Set<Subject> courseRequirement;
         private String courseFees;
 
         public Builder setCourseId(String courseId) {
@@ -75,11 +73,6 @@ public class Course implements Serializable {
             return this;
         }
 
-        public Builder setCourseRequirement (Set<Subject> courseRequirement){
-            this.courseRequirement = courseRequirement;
-            return this;
-        }
-
         public Builder setCourseFees (String courseFees){
             this.courseFees =courseFees;
             return this;
@@ -89,12 +82,24 @@ public class Course implements Serializable {
             this.courseId = course.courseId;
             this.courseName = course.courseName;
             this.courseCode = course.courseCode;
-            this.courseRequirement = course.courseRequirement;
             this.courseFees = course.courseFees;
             return this;
         }
 
         public Course build(){return new Course (this);}
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Course course = (Course) o;
+        return courseId.equals(course.courseId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(courseId);
     }
 }

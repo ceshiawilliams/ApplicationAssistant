@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.entity.user.PersonalDetail;
 import za.ac.cput.factory.user.PersonalDetailFactory;
 import za.ac.cput.service.user.PersonalDetailService;
@@ -14,7 +15,8 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class PersonalDetailServiceImplTest {
 
-    private static PersonalDetailService service = PersonalDetailServiceImpl.getService();
+    @Autowired
+    private PersonalDetailService service ;
     private static PersonalDetail personalDetail = PersonalDetailFactory.createPersonalDetails("john.doe@gmail.com", "0729482386", "National Diploma");
 
     @Test

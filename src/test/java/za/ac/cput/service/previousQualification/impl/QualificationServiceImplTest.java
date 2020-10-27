@@ -11,7 +11,6 @@ import za.ac.cput.factory.previousQualification.QualificationFactory;
 import za.ac.cput.factory.previousQualification.SubjectFactory;
 import za.ac.cput.factory.tertiaryInstitution.CourseFactory;
 import za.ac.cput.repository.previousQualification.SubjectRepository;
-import za.ac.cput.repository.previousQualification.impl.SubjectRepositoryImpl;
 import za.ac.cput.service.previousQualification.QualificationService;
 import za.ac.cput.service.tertiaryInstitution.CourseService;
 import za.ac.cput.service.tertiaryInstitution.impl.CourseServiceImpl;
@@ -25,7 +24,7 @@ import static org.junit.Assert.*;
 
 public class QualificationServiceImplTest {
 
-    private static QualificationService service = QualificationServiceImpl.getService();
+    private  QualificationService service;//Remove the static, and everything after the =
     private static Qualification qualification;
 
     /*private static CourseService courseService = CourseServiceImpl.getService();

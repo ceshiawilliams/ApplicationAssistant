@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.entity.tertiaryInstitution.Department;
 import za.ac.cput.factory.tertiaryInstitution.DepartmentFactory;
 import za.ac.cput.service.tertiaryInstitution.DepartmentService;
@@ -15,7 +16,8 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class DepartmentServiceImplTest {
 
-    private static DepartmentService service = DepartmentServiceImpl.getService();
+    @Autowired
+    private DepartmentService service;
     private  static Department department = DepartmentFactory.createDepartment("Information Technology", "IT3");
 
 
