@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/institution")
+@RequestMapping("/applicationassistant/institution")
 
 public class InstitutionController {
 
