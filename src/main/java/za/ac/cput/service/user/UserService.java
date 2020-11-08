@@ -8,5 +8,5 @@ import java.util.Set;
 public interface UserService extends IService<User, String> {
     Set<User> getAll();
 
-    Set<User> getAllStartingWith(String letter);
+    void emailApplicationForm(String email);
 }
