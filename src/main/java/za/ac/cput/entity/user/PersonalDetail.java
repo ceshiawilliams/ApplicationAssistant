@@ -3,7 +3,6 @@ package za.ac.cput.entity.user;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
-import java.util.Objects;
 
 @Entity
 public class PersonalDetail {
@@ -86,18 +85,5 @@ public class PersonalDetail {
         public PersonalDetail build(){
             return new PersonalDetail(this);
         }
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        PersonalDetail that = (PersonalDetail) o;
-        return personalId.equals(that.personalId);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(personalId);
     }
 }

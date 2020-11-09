@@ -45,10 +45,7 @@ public class FacultyServiceImpl implements FacultyService {
 
     @Override
     public Faculty update(Faculty faculty) {
-        if (this.repository.existsById(faculty.getFacultyId())) {
-            return this.repository.save(faculty);
-        }
-        return null;
+        return this.repository.save(faculty);
     }
 
     @Override

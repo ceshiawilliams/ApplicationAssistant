@@ -30,8 +30,6 @@ public class FacultyControllerTest {
     private String baseURL = "http://localhost:8080/faculty/";
 
     private static Faculty faculty = FacultyFactory.createFaculty("ICT123", "Informatics and Design");
-    private static String  SECURITY_USERNAME = "client";
-    private static String  SECURITY_PASSWORD = "other";
 
     @Test
     public void a_create() {
@@ -53,9 +51,7 @@ public class FacultyControllerTest {
         String url = baseURL + "all";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> response = restTemplate
-                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
-                .exchange(url, HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
         System.out.println(response);
         System.out.println(response.getBody());
     }
@@ -65,9 +61,7 @@ public class FacultyControllerTest {
         String url = baseURL + "read/" + faculty.getFacultyId();
         System.out.println("URL: " + url);
 
-        ResponseEntity<Faculty> response = restTemplate
-                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
-                .getForEntity(url, Faculty.class);
+        ResponseEntity<Faculty> response = restTemplate.getForEntity(url, Faculty.class);
         assertEquals(faculty.getFacultyId(), response.getBody().getFacultyId());
         System.out.println(response.getBody());
     }
@@ -78,9 +72,7 @@ public class FacultyControllerTest {
         String url = baseURL + "update";
         System.out.println("URL: " + url);
         System.out.println("Post Data: " + updated);
-        ResponseEntity<Faculty> postResponse = restTemplate
-                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
-                .postForEntity(url, updated, Faculty.class);
+        ResponseEntity<Faculty> postResponse = restTemplate.postForEntity(url, updated, Faculty.class);
         assertEquals(faculty.getFacultyId(), postResponse.getBody().getFacultyId());
     }
 
@@ -88,6 +80,6 @@ public class FacultyControllerTest {
     public void e_delete() {
         String url = baseURL + "delete/" + faculty.getFacultyId();
         System.out.println("URL: " + url);
-        restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).delete(url);
+        restTemplate.delete(url);
     }
 }

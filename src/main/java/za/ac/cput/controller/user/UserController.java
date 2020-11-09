@@ -9,7 +9,7 @@ import za.ac.cput.service.user.impl.UserServiceImpl;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/applicationassistant/user")
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
