@@ -9,7 +9,7 @@ import za.ac.cput.service.user.impl.PersonalDetailServiceImpl;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/personalDetail")
+@RequestMapping("/applicationassistant/personalDetail")
 public class PersonalDetailController {
 
     @Autowired
