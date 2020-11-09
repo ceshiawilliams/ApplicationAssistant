@@ -96,8 +96,7 @@ public class QualificationControllerTest {
         System.out.println("URL: " + url);
         restTemplate
                 .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
-                .delete(url);
-    }
+                .delete(url);    }
 
     @Test
     public void e_getAllStartingWith() {
