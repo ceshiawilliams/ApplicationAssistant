@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import za.ac.cput.entity.user.User;
 import za.ac.cput.repository.user.UserRepository;
 import za.ac.cput.service.user.UserService;
-import za.ac.cput.util.SendHTMLEmail;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -25,10 +24,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void emailApplicationForm(String email) {
-        //confirm email
-        //call send email class
-        SendHTMLEmail.sendEmail(email);
+    public Set<User> getAllStartingWith(String letter) {
+        Set<User> userSet = getAll();
+        Set<User> usersStartingWith = new HashSet<>();
+        for(User user : userSet){
+            if(user.getUsername().trim().toLowerCase().startsWith(letter))
+            {
+                usersStartingWith.add(user);
+            }
+        }
+        return usersStartingWith;
     }
 
     @Override

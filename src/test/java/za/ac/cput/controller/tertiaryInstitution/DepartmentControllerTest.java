@@ -28,9 +28,6 @@ public class DepartmentControllerTest {
     private String baseURL = "http://localhost:8080/department/";
 
     private static Department department = DepartmentFactory.createDepartment("Engineering", "ICT123");
-    private static String SECURITY_USERNAME = "group14";
-    private static String SECURITY_PASSWORD = "password";
-
 
     @Test
     public void a_create() {
@@ -38,13 +35,9 @@ public class DepartmentControllerTest {
         System.out.println("URL: " + url);
         System.out.println("Post Data: " + department);
 
-        ResponseEntity<Department> postResponse = restTemplate
-                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
-                .postForEntity(url, department, Department.class);
+        ResponseEntity<Department> postResponse = restTemplate.postForEntity(url, department, Department.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
-        System.out.println(postResponse);
-
 
         department = postResponse.getBody();
         System.out.println("Saved Data: " + department);
@@ -56,9 +49,7 @@ public class DepartmentControllerTest {
         String url = baseURL + "all";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> response = restTemplate
-                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
-                .exchange(url, HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
         System.out.println(response);
         System.out.println(response.getBody());
     }
@@ -68,9 +59,7 @@ public class DepartmentControllerTest {
         String url = baseURL + "read/" + "c9ac2c66-e00b-4fe3-86b1-d477e7e7523c";
         System.out.println("URL: " + url);
 
-        ResponseEntity<Department> response = restTemplate
-                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
-                .getForEntity(url, Department.class);
+        ResponseEntity<Department> response = restTemplate.getForEntity(url, Department.class);
        // assertEquals(department.getDepartmentId(), response.getBody().getDepartmentId());
         System.out.println(response.getBody());
     }
@@ -81,9 +70,7 @@ public class DepartmentControllerTest {
         String url = baseURL + "update";
         System.out.println("URL: " + url);
         System.out.println("Post Data: " + updated);
-        ResponseEntity<Department> postResponse = restTemplate
-                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
-                .postForEntity(url, updated, Department.class);
+        ResponseEntity<Department> postResponse = restTemplate.postForEntity(url, updated, Department.class);
       //  assertEquals(department.getDepartmentId(), postResponse.getBody().getDepartmentId());
     }
 
@@ -91,8 +78,6 @@ public class DepartmentControllerTest {
     public void e_delete() {
         String url = baseURL + "delete/" + department.getDepartmentId();
         System.out.println("URL: " + url);
-        restTemplate
-                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
-                .delete(url);
+        restTemplate.delete(url);
     }
 }
