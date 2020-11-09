@@ -2,7 +2,7 @@ package za.ac.cput;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import za.ac.cput.util.SendHTMLEmail;
+//import za.ac.cput.util.SendHTMLEmail;
 
 @SpringBootApplication
 public class ApplicationAssistantApp {
@@ -11,5 +11,3 @@ public class ApplicationAssistantApp {
         //SendHTMLEmail.sendEmail("henry.keown@gmail.com");
     }
 }
-
-
