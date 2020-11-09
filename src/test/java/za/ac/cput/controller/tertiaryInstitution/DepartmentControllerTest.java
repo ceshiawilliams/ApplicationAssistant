@@ -28,7 +28,7 @@ public class DepartmentControllerTest {
     private String baseURL = "http://localhost:8080/department/";
 
     private static Department department = DepartmentFactory.createDepartment("Engineering", "ICT123");
-    private static String SECURITY_USERNAME = "group14";
+    private static String SECURITY_USERNAME = "Abdullah";
     private static String SECURITY_PASSWORD = "password";
 
 
