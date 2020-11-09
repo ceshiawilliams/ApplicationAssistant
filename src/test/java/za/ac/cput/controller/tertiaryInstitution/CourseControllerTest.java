@@ -24,6 +24,8 @@ import static org.junit.Assert.*;
 public class CourseControllerTest {
 
     private static Course course = CourseFactory.createCourse("Graphics", "BP3", "2000");
+    private static String SECURITY_USERNAME = "Abdullah";
+    private static String SECURITY_PASSWORD = "password";
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -35,9 +37,13 @@ public class CourseControllerTest {
         System.out.println("URL: " + url);
         System.out.println("Post data: " + course);
 
-        ResponseEntity<Course> postResponse = restTemplate.postForEntity(url, course, Course.class);
+        ResponseEntity<Course> postResponse = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url, course, Course.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
+        System.out.println(postResponse);
+
 
         course = postResponse.getBody();
         System.out.println("Saved data: " + course);
@@ -51,7 +57,9 @@ public class CourseControllerTest {
 
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .exchange(url, HttpMethod.GET, entity, String.class);
         System.out.println(response);
         System.out.println(response.getBody());
     }
@@ -60,7 +68,9 @@ public class CourseControllerTest {
     public void b_read() {
         String url = baseURL + "read/" + "15e4ecf9-6d3b-40a4-8463-b6aca03a1c69";
         System.out.println("URL: " + url);
-        ResponseEntity<Course> response = restTemplate.getForEntity(url, Course.class);
+        ResponseEntity<Course> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .getForEntity(url, Course.class);
 
         System.out.println("Saved data: " + response.getBody());
         //assertEquals(course.getCourseId(), response.getBody().getCourseId());
@@ -72,7 +82,9 @@ public class CourseControllerTest {
         String url = baseURL + "update";
         System.out.println("URL: " + url);
         System.out.println("Post data: " + updated);
-        ResponseEntity<Course> response = restTemplate.postForEntity(url, updated, Course.class);
+        ResponseEntity<Course> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url, updated, Course.class);
         //assertEquals(course.getCourseId(), response.getBody().getCourseId());
     }
 
@@ -82,7 +94,9 @@ public class CourseControllerTest {
         System.out.println("URL: " + url);
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .exchange(url, HttpMethod.GET, entity, String.class);
         System.out.println(response);
         System.out.println(response.getBody());
     }
@@ -91,6 +105,8 @@ public class CourseControllerTest {
     public void f_delete() {
         String url = baseURL + "delete/" + course.getCourseId();
         System.out.println("URL: " + url);
-        restTemplate.delete(url);
+        restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .delete(url);
     }
 }

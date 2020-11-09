@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import za.ac.cput.entity.user.User;
 import za.ac.cput.factory.user.UserFactory;
 import za.ac.cput.service.user.UserService;
+//import za.ac.cput.util.SendHTMLEmail;
 
 import java.util.Set;
 
@@ -26,12 +27,14 @@ public class UserServiceImplTest {
         System.out.println("Get All: " + users);
     }
 
-    @Test
-    public void e_getAllStartingWith() {
-        Set<User> users = service.getAllStartingWith("a");
-        Assert.assertEquals(1, users.size());
-        System.out.println("Get All Starting With 'A': " + users);
-    }
+//    @Test
+//    public void e_emailApplicationForm() {
+//        User created = service.create(user);
+//        Assert.assertEquals(user.getUserEmail(), created.getUserEmail());
+//        Assert.assertEquals(user.getConfirmEmail(), created.getConfirmEmail());
+//        SendHTMLEmail.sendEmail(user.getUserEmail());
+//        System.out.println("Email successfully sent to: " + user.getUserEmail());
+//    }
 
     @Test
     public void a_create() {

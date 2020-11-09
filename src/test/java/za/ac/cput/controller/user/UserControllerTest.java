@@ -7,7 +7,10 @@ import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.http.*;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import za.ac.cput.entity.user.User;
 import za.ac.cput.factory.user.UserFactory;
@@ -24,8 +27,6 @@ public class UserControllerTest {
     private String baseURL = "http://localhost:8080/user/";
 
     private static User user = UserFactory.createUser("Abdullah", "abdllahryklief@gmail.com", "password", "abdullahryklief@gmail.com", "password");
-    private static String SECURITY_USERNAME = "Abdullah";
-    private static String SECURITY_PASSWORD = "password";
 
     @Test
     public void a_create() {
@@ -33,15 +34,12 @@ public class UserControllerTest {
         System.out.println("URL: " + url);
         System.out.println("Post Data: " + user);
 
-        ResponseEntity<User> postResponse = restTemplate
-                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
-                .postForEntity(url, user, User.class);
+        ResponseEntity<User> postResponse = restTemplate.postForEntity(url, user, User.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
 
         user = postResponse.getBody();
         System.out.println("Saved Data: " + user);
-        //assertEquals(HttpStatus.OK, postResponse.getStatusCode());
         assertEquals(user.getUserId(), postResponse.getBody().getUserId());
     }
 
@@ -50,9 +48,7 @@ public class UserControllerTest {
         String url = baseURL + "all";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> response = restTemplate
-                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
-                .exchange(url, HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
         System.out.println(response);
         System.out.println(response.getBody());
     }
@@ -62,9 +58,7 @@ public class UserControllerTest {
         String url = baseURL + "read/" + user.getUserId();
         System.out.println("URL: " + url);
 
-        ResponseEntity<User> response = restTemplate
-                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
-                .getForEntity(url, User.class);
+        ResponseEntity<User> response = restTemplate.getForEntity(url, User.class);
         assertEquals(user.getUserId(), response.getBody().getUserId());
         System.out.println(response.getBody());
     }
@@ -75,9 +69,7 @@ public class UserControllerTest {
         String url = baseURL + "update";
         System.out.println("URL: " + url);
         System.out.println("Post Data: " + updated);
-        ResponseEntity<User> postResponse = restTemplate
-                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
-                .postForEntity(url, updated, User.class);
+        ResponseEntity<User> postResponse = restTemplate.postForEntity(url, updated, User.class);
         assertEquals(user.getUserId(), postResponse.getBody().getUserId());
     }
 
@@ -85,8 +77,6 @@ public class UserControllerTest {
     public void e_delete() {
         String url = baseURL + "delete/" + user.getUserId();
         System.out.println("URL: " + url);
-        restTemplate
-                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
-                .delete(url);
+        restTemplate.delete(url);
     }
 }
