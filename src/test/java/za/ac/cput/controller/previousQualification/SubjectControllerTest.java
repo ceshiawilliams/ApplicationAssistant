@@ -29,6 +29,8 @@ public class SubjectControllerTest {
     private String baseURL = "http://localhost:8080/subject/";
 
     private static Subject subject = SubjectFactory.createSubject("Multimedia", 52);
+    private static String  SECURITY_USERNAME = "client";
+    private static String  SECURITY_PASSWORD = "other";
 
     @Test
     public void a_create() {
@@ -37,7 +39,9 @@ public class SubjectControllerTest {
         System.out.println("URL" + url);
         System.out.println("Post data" + subject);
 
-        ResponseEntity<Subject> postResponse = restTemplate.postForEntity(url, subject, Subject.class);
+        ResponseEntity<Subject> postResponse = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url, subject, Subject.class);
         assertNotNull(postResponse);
         assertNotNull(postResponse.getBody());
 
@@ -55,7 +59,9 @@ public class SubjectControllerTest {
         //   System.out.println("URL" + url);
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+        ResponseEntity<String> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .exchange(url, HttpMethod.GET, entity, String.class);
         System.out.println(response);
         System.out.println(response.getBody());
     }
@@ -65,7 +71,9 @@ public class SubjectControllerTest {
         String url = baseURL + "read/" + subject.getSubjectId();
         System.out.println("URL" + url);
 
-        ResponseEntity<Subject> response = restTemplate.getForEntity(url, Subject.class);
+        ResponseEntity<Subject> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .getForEntity(url, Subject.class);
         assertEquals(subject.getSubjectId(), response.getBody().getSubjectId());
         System.out.println(response.getBody());
     }
@@ -76,7 +84,9 @@ public class SubjectControllerTest {
         String url = baseURL + "update";
         System.out.println("URL " + url);
         System.out.println("Post data: " + updated);
-        ResponseEntity<Subject> response = restTemplate.postForEntity(url, updated, Subject.class);
+        ResponseEntity<Subject> response = restTemplate
+                .withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD)
+                .postForEntity(url, updated, Subject.class);
         assertEquals(subject.getSubjectId(), response.getBody().getSubjectId());
 
 
@@ -86,7 +96,7 @@ public class SubjectControllerTest {
     public void e_delete(){
         String url = baseURL + "delete/" + subject.getSubjectId();
         System.out.println("URL " + url);
-        restTemplate.delete(url);
+        restTemplate.withBasicAuth(SECURITY_USERNAME, SECURITY_PASSWORD).delete(url);
 
     }
 }
