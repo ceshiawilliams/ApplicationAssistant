@@ -25,6 +25,7 @@ public class FundingServiceImpl implements FundingService {
 
     @Override
     public Set<Funding> getAllStartingWith(String letter) {
+
         Set<Funding> fundings = getAll();
         Set<Funding> fundingsWith = new HashSet<>();
         for (Funding funding : fundings) {
