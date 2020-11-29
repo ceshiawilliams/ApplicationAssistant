@@ -2,6 +2,7 @@ package za.ac.cput.service.previousQualification.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import za.ac.cput.entity.financialAid.Funding;
 import za.ac.cput.entity.previousQualification.Subject;
 import za.ac.cput.repository.previousQualification.SubjectRepository;
 import za.ac.cput.service.previousQualification.SubjectService;
@@ -22,15 +23,17 @@ public class SubjectServiceImpl implements SubjectService {
     }
 
     @Override
-    public Set<Subject> getAllStartingWith(String letter) {
+    public Set<Subject> searchByName(String name) {
         Set<Subject> subjects = getAll();
-        Set<Subject> subjectsWith = new HashSet<>();
+        Set<Subject> subjectsByName = new HashSet<>();
         for (Subject subject : subjects) {
-            if (subject.getSubjectName().trim().toLowerCase().startsWith(letter)){
-                subjectsWith.add(subject);
+            if (subject.getSubjectName().trim().toLowerCase().contains(name))
+            {
+                subjectsByName.add(subject);
             }
         }
-        return subjectsWith;
+        return subjectsByName;
+
     }
 
    /** @Override
