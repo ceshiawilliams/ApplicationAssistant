@@ -12,19 +12,17 @@ import java.util.stream.Collectors;
 @Service
 public class FundingServiceImpl implements FundingService {
 
-
     @Autowired
     private FundingRepository repository;
 
     @Override
     public Set<Funding> getAll() {
-
         return this.repository.findAll().stream().collect(Collectors.toSet());
     }
 
-
     @Override
-    public Set<Funding> searchBy(String name) {
+    public Set<Funding> searchByName(String name) {
+        Business-Rules-and-Bridging-Entities
         Set<Funding> fundings = getAll();
         Set<Funding> fundingsWith = new HashSet<>();
         for (Funding funding : fundings) {
@@ -32,7 +30,6 @@ public class FundingServiceImpl implements FundingService {
             {
                 fundingsWith.add(funding);
             }
-
         }
         return fundingsWith;
     }
