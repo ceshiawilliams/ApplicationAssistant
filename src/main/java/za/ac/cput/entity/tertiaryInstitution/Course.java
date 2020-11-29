@@ -16,9 +16,6 @@ public class Course {
     private String courseCode;
     private String courseFees;
 
-
-
-
     protected Course(){}
 
     private Course(Builder builder) {

@@ -25,6 +25,9 @@ public class FundingController {
     @GetMapping("/all")
     public Set<Funding> getAll() {return fundingService.getAll();}
 
+    @GetMapping("/search/{name}")
+    public Set<Funding> searchBy(@PathVariable String name) {return fundingService.searchBy(name);}
+
     @GetMapping("/read/{id}")
     public Funding read(@PathVariable String id)
     {
