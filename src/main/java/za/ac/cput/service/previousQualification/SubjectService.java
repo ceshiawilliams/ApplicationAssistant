@@ -10,4 +10,5 @@ public interface SubjectService extends IService<Subject, String> {
 
     Set<Subject> getAll();
     Set<Subject> getAllStartingWith(String letter);
+    //Set<Subject> sorting();
 }
